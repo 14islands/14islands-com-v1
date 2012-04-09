@@ -1,0 +1,237 @@
+/* Contain floats: h5bp.com/q */
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+.border-box {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+}
+/*
+* Colors
+*//*
+* Base typography
+*/
+h1 {
+  /* 65px */
+
+  font-size: 4.0625em;
+  line-height: 1.2em;
+  color: #1c1c1c;
+  padding-bottom: 0.3em;
+}
+h2,
+h3,
+p {
+  font-size: 1.5em;
+  line-height: 1.4em;
+  font-weight: normal;
+  letter-spacing: 0.11em;
+  color: #3e3e3e;
+}
+h2,
+p {
+  font-style: italic;
+}
+h3 {
+  font-weight: bold;
+  padding-top: 1.5em;
+  padding-bottom: 1em;
+}
+h4,
+h5 {
+  font-size: 1.25em;
+  line-height: 1.3em;
+}
+h5 {
+  font-size: 1.125em;
+  line-height: 1.3em;
+  font-weight: normal;
+}
+p {
+  font-size: 1.375em;
+  padding-bottom: 1.5em;
+}
+/*
+* Layout
+*/
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.column {
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.column-wide {
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  max-width: 1200px;
+  margin: 0 auto;
+  *zoom: 1;
+}
+.column-wide:before,
+.column-wide:after {
+  content: "";
+  display: table;
+}
+.column-wide:after {
+  clear: both;
+}
+.column-three {
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+  /* Takes one third */
+
+  width: 33.333333333333336%;
+}
+/*
+* Header
+*/
+header {
+  padding-bottom: 5em;
+}
+/*
+* Intro
+*/
+#intro {
+  padding-bottom: 5em;
+}
+#intro h2 {
+  /* Dont want it to
+	strech to wide */
+
+  max-width: 1000px;
+}
+/*
+* Work
+*/
+#work {
+  *zoom: 1;
+  background: #f2f2f2;
+  border: 1px solid #d9d9d9;
+  padding-bottom: 3em;
+}
+#work:before,
+#work:after {
+  content: "";
+  display: table;
+}
+#work:after {
+  clear: both;
+}
+#work figure > img {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  display: block;
+  max-width: 100%;
+  padding: .3em;
+  margin-bottom: 1em;
+  background: white;
+}
+/*
+* Breakpoint - Widescreen
+*/
+@media only screen and (max-width: 1200px) {
+  body {
+    font-size: .9em;
+  }
+}
+/*
+* Breakpoint - Tablets such as iPad in landscape mode
+*/
+@media only screen and (max-width: 1024px) {
+  body {
+    font-size: .8em;
+  }
+}
+/*
+* Breakpoint - Small resolution & tablets in portrait mode
+*/
+@media only screen and (max-width: 768px) {
+  h1 {
+    font-size: 3.125em;
+  }
+}
+/*
+* Breakpoint - X
+*/
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: .7em;
+  }
+  h1 {
+    font-size: 2.5em;
+  }
+  .column-three {
+    width: 100%;
+    padding-bottom: 2em;
+  }
+  #work figure > img {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 40%;
+    padding: 0 2em 0 0;
+    float: left;
+    background: none;
+  }
+  #work figure > figcaption {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 60%;
+    float: left;
+  }
+}
+/*
+* Breakpoint - X
+*/
+@media only screen and (max-width: 480px) {
+  body {
+    font-size: .65em;
+  }
+}
+/*
+* Breakpoint - X
+*/
+@media only screen and (max-width: 320px) {
+  
+}
