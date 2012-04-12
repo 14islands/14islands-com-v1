@@ -32,7 +32,7 @@ h1 {
   font-size: 4.0625em;
   line-height: 1.2em;
   color: #1c1c1c;
-  padding-bottom: 0.3em;
+  padding-bottom: .8em;
 }
 h2,
 h3,
@@ -69,9 +69,32 @@ p {
 /*
 * Layout
 */
-.wrapper {
+.wrapper-base {
+  *zoom: 1;
   max-width: 1200px;
   margin: 0 auto;
+}
+.wrapper-base:before,
+.wrapper-base:after {
+  content: "";
+  display: table;
+}
+.wrapper-base:after {
+  clear: both;
+}
+.wrapper {
+  *zoom: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 3em;
+}
+.wrapper:before,
+.wrapper:after {
+  content: "";
+  display: table;
+}
+.wrapper:after {
+  clear: both;
 }
 .column {
   padding-left: 0.75em;
@@ -83,6 +106,9 @@ p {
   box-sizing: border-box;
 }
 .column-wide {
+  *zoom: 1;
+  max-width: 1200px;
+  margin: 0 auto;
   padding-left: 0.75em;
   padding-right: 0.75em;
   -webkit-box-sizing: border-box;
@@ -90,8 +116,6 @@ p {
   -o-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
-  max-width: 1200px;
-  margin: 0 auto;
   *zoom: 1;
 }
 .column-wide:before,
@@ -102,7 +126,15 @@ p {
 .column-wide:after {
   clear: both;
 }
-.column-three {
+.column-wide:before,
+.column-wide:after {
+  content: "";
+  display: table;
+}
+.column-wide:after {
+  clear: both;
+}
+.column-two {
   padding-left: 0.75em;
   padding-right: 0.75em;
   -webkit-box-sizing: border-box;
@@ -111,7 +143,20 @@ p {
   -ms-box-sizing: border-box;
   box-sizing: border-box;
   float: left;
-  /* Takes one third */
+  /* Takes two thirds of width */
+
+  width: 66.66666666666667%;
+}
+.column-third {
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+  /* Takes one third of with */
 
   width: 33.333333333333336%;
 }
@@ -119,13 +164,13 @@ p {
 * Header
 */
 header {
-  padding-bottom: 5em;
+  padding-bottom: 8em;
 }
 /*
 * Intro
 */
 #intro {
-  padding-bottom: 5em;
+  padding-bottom: 8em;
 }
 #intro h2 {
   /* Dont want it to
@@ -140,7 +185,6 @@ header {
   *zoom: 1;
   background: #f2f2f2;
   border: 1px solid #d9d9d9;
-  padding-bottom: 3em;
 }
 #work:before,
 #work:after {
@@ -196,7 +240,8 @@ header {
   h1 {
     font-size: 2.5em;
   }
-  .column-three {
+  .column-third,
+  .column-two {
     width: 100%;
     padding-bottom: 2em;
   }

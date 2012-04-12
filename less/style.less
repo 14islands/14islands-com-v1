@@ -36,7 +36,7 @@ h1 {
 
 	color: #1c1c1c;
 
-	padding-bottom: 0.3em;
+	padding-bottom: .8em;
 }
 
 h2, h3, p {
@@ -87,9 +87,16 @@ p {
 * Layout
 */
 
-.wrapper {
+.wrapper-base {
+	.clearfix;
+
 	max-width: 1200px;
 	margin: 0 auto;
+}
+
+.wrapper {
+	.wrapper-base;
+	padding-bottom: 3em;
 }
 
 .column {
@@ -100,19 +107,30 @@ p {
 }
 
 .column-wide {
+	.wrapper-base;
 	.column;
-	.wrapper;
 	.clearfix;
 }
 
-.column-three {
+.column-two {
+	.column;
+	float: left;
+
+	/* Takes two thirds of width */
+	width: 100% / 1.5;
+}
+
+.column-third {
 	.column;
 
 	float: left;
 	
-	/* Takes one third */
+	/* Takes one third of with */
 	width: 100% / 3;
 }
+
+
+
 
 
 /*
@@ -121,7 +139,7 @@ p {
 
 
 header {
-	padding-bottom: 5em;
+	padding-bottom: 8em;
 }
 
 
@@ -130,7 +148,7 @@ header {
 */
 
 #intro {
-	padding-bottom: 5em;
+	padding-bottom: 8em;
 }
 
 #intro h2 {
@@ -152,7 +170,7 @@ header {
 	background: @light;
 	border: 1px solid @silver;
 
-	padding-bottom: 3em;
+	
 }
 
 
@@ -220,7 +238,7 @@ header {
 		font-size: ( 40 / @font-size ) * @em;
 	}
 
-	.column-three {
+	.column-third, .column-two {
 		width: 100%;
 		padding-bottom: 2em;
 	}
