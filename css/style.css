@@ -17,38 +17,54 @@
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
-body {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 1em;
-}
 /*
 * Colors
-*//*
+*/body {
+  color: #3b4854;
+  background: #f9f9f9;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+  /* more crisp font rendering please! */
+
+  -webkit-font-smoothing: antialiased;
+}
+/*
 * Base typography
 */
+h1,
+h2,
+h3 {
+  font-weight: 300;
+}
+b {
+  font-weight: 700;
+}
 h1 {
   /* 65px */
 
   font-size: 4.0625em;
   line-height: 1.2em;
-  color: #1c1c1c;
   padding-bottom: .8em;
+}
+h2 {
+  font-size: 2.75em;
 }
 h2,
 h3,
 p {
-  font-size: 1.5em;
-  line-height: 1.4em;
-  font-weight: normal;
-  letter-spacing: 0.11em;
-  color: #3e3e3e;
+  line-height: 1.5em;
+  color: #3b4854;
 }
-h2,
-p {
-  font-style: italic;
+.inverted {
+  color: #ffffff;
+}
+.inverted h1,
+.inverted h2,
+.inverted h3,
+.inverted p {
+  color: #ffffff;
 }
 h3 {
-  font-weight: bold;
   padding-top: 1.5em;
   padding-bottom: 1em;
 }
@@ -63,7 +79,7 @@ h5 {
   font-weight: normal;
 }
 p {
-  font-size: 1.375em;
+  font-size: 16px;
   padding-bottom: 1.5em;
 }
 /*
@@ -160,6 +176,9 @@ p {
 
   width: 33.333333333333336%;
 }
+article {
+  padding: 120px 0 80px 0;
+}
 /*
 * Header
 */
@@ -169,9 +188,6 @@ header {
 /*
 * Intro
 */
-#intro {
-  padding-bottom: 8em;
-}
 #intro h2 {
   /* Dont want it to
 	strech to wide */
@@ -183,8 +199,6 @@ header {
 */
 #work {
   *zoom: 1;
-  background: #f2f2f2;
-  border: 1px solid #d9d9d9;
 }
 #work:before,
 #work:after {
@@ -194,17 +208,43 @@ header {
 #work:after {
   clear: both;
 }
-#work figure > img {
+#work h2 {
+  position: relative;
+}
+#work h2 span {
+  position: absolute;
+  clip: rect(1px 1px 1px 1px);
+}
+#work h2:after {
+  position: absolute;
+  content: "";
+  top: -100px;
+  right: 0;
+  height: 98px;
+  width: 105px;
+  background: url('assets/checkout.png');
+}
+#work figure .border {
+  display: inline-block;
+  background: white;
+  padding: 0.25em;
+  margin-bottom: 1em;
+  border-radius: 0.9375em;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+#work figure img {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -o-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
+  border-radius: 0.75em;
   display: block;
   max-width: 100%;
-  padding: .3em;
-  margin-bottom: 1em;
-  background: white;
+  margin: 0;
+}
+#about {
+  background: #407a93 url('assets/background-blue.jpg');
 }
 /*
 * Breakpoint - Widescreen
