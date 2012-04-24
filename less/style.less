@@ -1,6 +1,6 @@
 
 @import "mixins/utils";
-
+@import "mixins/css3";
 
 @font-size: 16;
 @line: 30;
@@ -100,8 +100,8 @@ p {
 
 .wrapper-base {
 	.clearfix;
-
-	max-width: 1200px;
+	max-width: 960px;
+	position: relative;
 	margin: 0 auto;
 }
 
@@ -130,6 +130,17 @@ p {
 	/* Takes two thirds of width */
 	width: 100% / 1.5;
 }
+
+
+.column-half {
+	.column;
+
+	float: left;
+	
+	/* Takes half with */
+	width: 100% / 2;
+}
+
 
 .column-third {
 	.column;
@@ -171,6 +182,120 @@ header {
 	max-width: 1000px;
 
 }
+
+h3.contact {
+	-webkit-font-smoothing: subpixel-antialiased;
+	a {
+		color: #E54995;
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;			
+		}
+	}
+}
+
+
+/* 
+ * About 
+ */
+.about-text {
+	padding-right: 100px;
+}
+.webuild {	
+	background: url('assets/background-blue-box.png') no-repeat;
+	height: (314 / 16) * @em;
+	background-size: contain;
+}
+.quotes {
+	padding: 0;
+	position: absolute;
+	right: 0;
+	width: 334px;
+	height: 203px;
+
+	.perspective( 600px );    
+	.perspective-origin( 50% 50% );
+	
+	blockquote {
+		
+		background-image: url('assets/background-quotes.jpg');
+		background-repeat: no-repeat;
+
+		color: @bronze;
+		margin: 0;
+		display: block;
+		position: absolute;
+		top:0; bottom:0;
+		left:0; right:0;
+		background-color: rgba(0,0,0,0);
+	 	.backface-visibility( hidden );
+    
+
+    >div {
+			padding: 20px;
+			.box-sizing(border-box);
+			height: 100%;
+			.transition( all .7s cubic-bezier(0.230, 1.000, 0.320, 1.000) );
+    }
+		
+		&:before, 
+		&:after {
+			display: block; 
+			content: '"'; 
+			font-size: 150px; 
+			position: absolute; 
+			top: -60px; 
+			.transform( translateZ(0px) );
+			.backface-visibility( hidden ); 
+			font-family: Helvetica;
+		}
+		&:after {
+			top:auto;  bottom: -110px; right: 0;
+		}
+	}
+	
+	.roll {
+	  height: 100%;
+	  width: 100%;     
+	  .transition( all .7s cubic-bezier(0.230, 1.000, 0.320, 1.000) );
+	  .transform-origin( 50% 100% );
+	  .transform-style( preserve-3d );
+	}
+	&:hover .roll {
+	   .transform( translate3d(0px, -200px, 0px) rotateX(90deg) );
+	 }
+	&:hover .roll .b1 div {   
+		 color: rgba(255,255,255,0);
+	   background-color: rgba(255,255,255,.2);
+	 }
+	&:hover .roll .b2 div {
+		color: inherit;
+	   background: rgba(0,0,0,0);
+	 }
+
+	.b1 {
+	    display: block;
+	    position: absolute;    
+	    left: 0;
+	    top: 0;
+	}
+	
+	.b2 {
+	    position: absolute;
+	    left: 0;
+	    top: 0;	    
+	    .transform-origin( 50% 0% );
+	    .transform( translate3d(0px, 100%, 0px) rotateX(-90deg) );
+
+	    >div {
+	    	 color: rgba(0,0,0,.5);
+	    	 background: rgba(0,0,0,.4);
+	    }
+	}
+
+}
+
 
 
 /*
