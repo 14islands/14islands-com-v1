@@ -10,17 +10,38 @@
 
 
 /*
-* Colors
-*/ 
-
+ * Colors
+ */ 
 @black: #3b4854;
-@white: #fff;
+@white: #f2f2f2;
 @bronze: #d1c9aa;
 @green: #4fa331;
 @blue: #407a93;
 @bg-light: #f9f9f9;
 @bg-blue: #407a93 url('assets/background-blue.jpg');
 
+
+/* 
+ * Sprites
+ */
+.sprite-ui {
+	@spriteWidth: 608;
+	@spriteHeight: 800;
+	@density: 2;
+	background-image:  url('assets/sprite-ui-retina.png');
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	background-size: (@spriteWidth/@density)*@px (@spriteHeight/@density)*@px;
+}
+.sprite-quotes {
+	@spriteWidth: 400;
+	@spriteHeight: 300;
+	@density: 2;
+	background-image:  url('assets/sprite-quotes-retina.png');
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	background-size: (@spriteWidth/@density)*@px (@spriteHeight/@density)*@px;
+}
 
 body {
 	color: @black;
@@ -58,25 +79,41 @@ h2 {
 
 h2, h3, p {
 	line-height: 1.5em;
-	color: @black;
+}
+
+a {
+	color: @green;
+	text-decoration: none;
+	&:hover {
+		color: lighten(@green, 15%);
+	}
 }
 
 .inverted {
 	color: @white;
-	h1, h2, h3, p {
-		color: @white;
+	h1, h2, h3 {
+		color: #ffffff;
+	}
+	a {
+		color: @bronze;
+		border-bottom: 1px solid @bronze;
+		&:hover {
+			color: lighten(@bronze, 15%);
+		}
 	}
 }
 
 
 h3 {
+	font-size: ( 30 / @font-size ) * @em;
 	padding-top: 1.5em;
-	padding-bottom: 1em;
+	padding-bottom: .2em;
 }
 
 h4, h5 {
 	font-size: ( 20 / @font-size ) * @em;
 	line-height: 1.3em;
+	padding: .5em 0;
 }
 
 h5 {
@@ -94,6 +131,7 @@ p {
 
 
 
+
 /*
 * Layout
 */
@@ -101,6 +139,7 @@ p {
 .wrapper-base {
 	.clearfix;
 	max-width: 960px;
+	width: 99%; // always force a small margin
 	position: relative;
 	margin: 0 auto;
 }
@@ -113,7 +152,6 @@ p {
 .column {
 	padding-left: 0.75em;
 	padding-right: 0.75em;
-	
 	.border-box;
 }
 
@@ -126,7 +164,6 @@ p {
 .column-two {
 	.column;
 	float: left;
-
 	/* Takes two thirds of width */
 	width: 100% / 1.5;
 }
@@ -134,26 +171,32 @@ p {
 
 .column-half {
 	.column;
-
 	float: left;
-	
 	/* Takes half with */
 	width: 100% / 2;
 }
 
-
 .column-third {
 	.column;
-
 	float: left;
-	
 	/* Takes one third of with */
 	width: 100% / 3;
+}
+.column-fourth {
+	.column;
+	float: left;
+	/* Takes one fourth of with */
+	width: 100% / 4;
+}
+.column-fluid {
+	.column;
+	float: left;
+	padding-right: 5em;
 }
 
 
 article {
-	padding: 120px 0 80px 0;
+	padding: 90px 0 80px 0;
 }
 
 
@@ -164,7 +207,10 @@ article {
 
 
 header {
-	padding-bottom: 8em;
+	margin-bottom: 5%;
+	background: @bg-blue;
+	height: 8px;
+	border-bottom: 1px solid rgba(0,0,0,.2);
 }
 
 
@@ -173,14 +219,12 @@ header {
 */
 
 #intro {
-}
-
-#intro h2 {
-	
-	/* Dont want it to
-	strech to wide */
-	max-width: 1000px;
-
+	padding: 0 1em;
+ 	h2 {
+		/* Dont want it to
+		strech to wide */
+		max-width: 1000px;
+	}
 }
 
 h3.contact {
@@ -196,112 +240,11 @@ h3.contact {
 }
 
 
-/* 
- * About 
- */
-.about-text {
-	padding-right: 100px;
-}
-.webuild {	
-	background: url('assets/background-blue-box.png') no-repeat;
-	height: (314 / 16) * @em;
-	background-size: contain;
-}
-.quotes {
-	padding: 0;
-	position: absolute;
-	right: 0;
-	width: 334px;
-	height: 203px;
-
-	.perspective( 600px );    
-	.perspective-origin( 50% 50% );
-	
-	blockquote {
-		
-		background-image: url('assets/background-quotes.jpg');
-		background-repeat: no-repeat;
-
-		color: @bronze;
-		margin: 0;
-		display: block;
-		position: absolute;
-		top:0; bottom:0;
-		left:0; right:0;
-		background-color: rgba(0,0,0,0);
-	 	.backface-visibility( hidden );
-    
-
-    >div {
-			padding: 20px;
-			.box-sizing(border-box);
-			height: 100%;
-			.transition( all .7s cubic-bezier(0.230, 1.000, 0.320, 1.000) );
-    }
-		
-		&:before, 
-		&:after {
-			display: block; 
-			content: '"'; 
-			font-size: 150px; 
-			position: absolute; 
-			top: -60px; 
-			.transform( translateZ(0px) );
-			.backface-visibility( hidden ); 
-			font-family: Helvetica;
-		}
-		&:after {
-			top:auto;  bottom: -110px; right: 0;
-		}
-	}
-	
-	.roll {
-	  height: 100%;
-	  width: 100%;     
-	  .transition( all .7s cubic-bezier(0.230, 1.000, 0.320, 1.000) );
-	  .transform-origin( 50% 100% );
-	  .transform-style( preserve-3d );
-	}
-	&:hover .roll {
-	   .transform( translate3d(0px, -200px, 0px) rotateX(90deg) );
-	 }
-	&:hover .roll .b1 div {   
-		 color: rgba(255,255,255,0);
-	   background-color: rgba(255,255,255,.2);
-	 }
-	&:hover .roll .b2 div {
-		color: inherit;
-	   background: rgba(0,0,0,0);
-	 }
-
-	.b1 {
-	    display: block;
-	    position: absolute;    
-	    left: 0;
-	    top: 0;
-	}
-	
-	.b2 {
-	    position: absolute;
-	    left: 0;
-	    top: 0;	    
-	    .transform-origin( 50% 0% );
-	    .transform( translate3d(0px, 100%, 0px) rotateX(-90deg) );
-
-	    >div {
-	    	 color: rgba(0,0,0,.5);
-	    	 background: rgba(0,0,0,.4);
-	    }
-	}
-
-}
-
 
 
 /*
 * Work
 */
-
 #work {
 	.clearfix; 	
 
@@ -311,51 +254,325 @@ h3.contact {
 			position: absolute;
 			clip: rect(1px 1px 1px 1px);
 		}
+		// check out our work image
 		&:after {
 			position: absolute;
 			content: "";
 			top: -100px;
-			right: 0;
-			height: 98px;
-			width: 105px;
-			background: url('assets/checkout.png');
+			right: .5em;
+			height: (178/2) * @px;
+			width: (234/2) * @px;
+			.sprite-ui;background-position: right -210px;
+		}
+	}
+
+	.column-third {
+		width: 95% / 3;
+	}
+	.column-third + .column-third {
+		margin-left: 2.5%;
+	}
+
+	figure {
+		.border {
+			display: inline-block;
+			background: white;
+			padding: ( 4 / @font-size ) * @em;
+			margin: 0 -4% 1em -4%;
+			border-radius: (15 / @font-size ) * @em;
+			box-shadow: 0 1px 3px rgba(0,0,0,.5);
+		}	
+
+		img {
+			.border-box;
+			border-radius: (12 / @font-size ) * @em;
+			display: block;	
+			max-width: 100%;
+			width: 100%;
+			margin: 0;
 		}
 	}
 }
 
-#work figure {
 
-}
 
-#work figure {
-
-	.border {
-		display: inline-block;
-		background: white;
-		padding: ( 4 / @font-size ) * @em;
-		margin-bottom: 1em;
-		border-radius: (15 / @font-size ) * @em;
-		box-shadow: 0 1px 3px rgba(0,0,0,.5);
-	}	
-
-	img {
-		.border-box;
-		border-radius: (12 / @font-size ) * @em;
-		display: block;	
-		max-width: 100%;
-		margin: 0;
-	}
-}
+/* 
+ * About 
+ */
 
 #about {
 	background: @bg-blue;
+	position: relative;
+
+	&:before {
+		position: absolute;
+		top: 0;
+		display: block;
+		content: "";
+		width: 100%;
+		height: 16px;
+		background: url('assets/zigzag-down-retina.png') repeat-x;
+		background-size: 16px;
+	}
+	&:after {
+		position: absolute;
+		bottom: 0;
+		display: block;
+		content: "";
+		width: 100%;
+		height: 16px;
+		background: url('assets/zigzag-up-retina.png') repeat-x;
+		background-size: 16px;
+	}
 }
+
+.about-text {
+	padding-right: 100px;
+}
+.webuild {
+	padding-bottom: 0;
+}
+.we-build-responsive,
+.we-build-interactive,
+.we-build-mobile {
+	padding: (30/ @font-size) * @em;
+
+	h4 span {
+		position: absolute;
+		clip: rect(1px 1px 1px 1px);
+	}
+	img {
+		max-width: 250px;
+		width: 100%;
+	}
+}
+
+
+.about-list {
+	list-style: none;
+	color: @bronze;
+	li {
+		padding: 5px 0 5px 13px;
+		.sprite-ui;
+		background-position: 0 13px;
+		p {
+			padding: 0;
+		}
+	}
+}
+
+
+/* 
+ * Quotes carousel
+ */
+.quotes-3d {
+	@quotesHeight: 203; //size of bg image
+	@quotesWidth: 334; //size of bg image
+
+	float: right;
+	position: relative;
+	top: 4.2em;
+	right: -0.75em;
+
+	padding: 0;
+	width: @quotesWidth * @px;
+	height: @quotesHeight * @px;
+	text-align: center;
+
+	// base font size for module
+	font-size: 16px;
+
+	.perspective( 600px );    
+	.perspective-origin( 50% 50% );
+	.transform-origin( 50% 50%  (@quotesHeight/2) * @px );
+	
+	blockquote {
+		
+		background: url('assets/background-quotes-border.png') 0 0 no-repeat, url('assets/background-blue.jpg') 0 0;
+		background-size: contain, auto;
+
+		text-align: left;
+		margin: 0;
+		padding: 1px;
+		display: block;
+		position: absolute;
+		top:0; bottom:0;
+		left:0; right:0;
+		background-color: rgba(0,0,0,0);
+	 	.backface-visibility( hidden );
+    .transform-style( preserve-3d );
+
+    >div {
+			padding: 50px 20px;
+			.box-sizing(border-box);
+			height: 100%;
+			.transition( all .7s cubic-bezier(0.230, 1.000, 0.320, 1.000) );
+
+			p {
+				color: @bronze;
+				padding: 0;
+				font-style: italic;
+			}
+
+			footer {
+				color: #ddd;
+				display: block;
+				font-size: ( 14 / 16 ) * @em;
+				padding-top: 10px;
+			}
+
+			// what ppl say
+			&:before {
+				.sprite-quotes;background-position: 0 -115px;
+				display: block; 
+				content: '';
+				position: absolute; 
+				top: 4px;
+				left: 85px;
+				height: 35px;
+				width: 200px;
+				.transform( translateZ(1px) );
+				.backface-visibility( hidden ); 
+			}
+    }
+
+    // size quote content to fill box
+    &.paul p {
+			font-size: ( 18 / 16 ) * @em;
+		}
+		&.hakim p {
+			font-size: ( 23 / 16 ) * @em;
+			padding-top: 10px;
+		}
+		&.thodoris p {
+			font-size: ( 20 / 16 ) * @em;
+		}
+		
+		&:before, 
+		&:after {
+			.sprite-quotes;
+			display: block; 
+			content: ''; 
+			position: absolute; 
+			top: -16px; 
+			left: 13px;
+			width: 70px;
+			height: 55px;
+			.transform( translateZ(10px) );
+			.backface-visibility( hidden ); 
+		}
+		&:after {
+			background-position: 0 -52px;
+			top:auto; left: auto;  bottom: -19px; right: 0;
+		}
+	}
+	
+	.rolling {
+	  .transition( all .7s cubic-bezier(0.230, 1.000, 0.320, 1.000) );
+	}
+
+	.before >div {
+		color: rgba(255,255,255,0);
+ 		background-color: rgba(255,255,255,.2);
+	}	
+	.after >div {
+		color: rgba(0,0,0,0);
+  	background-color: rgba(0,0,0,0.3);
+	}
+
+	&.vertical .before {
+		.transform( rotateX(90deg) );
+	}
+	&.vertical .after {
+		.transform( rotateX(-90deg) );
+	}
+	&.vertical blockquote {
+		.transform-origin( 50% 50%  -(@quotesHeight/2) * @px );
+	}
+
+	&.horizontal .before {
+		.transform( rotateY(-90deg) );
+	}
+	&.horizontal .after {
+		.transform( rotateY(90deg) );
+	}
+	&.horizontal blockquote {
+		.transform-origin( 50% 50%  -(@quotesWidth/2) * @px );
+	}
+
+	.pagination {
+		display: inline-block;
+		padding: 18px;
+		margin-top: 33px;
+		padding-top: ((@quotesHeight/16) * @em);
+
+		li {
+			display: inline-block;
+			margin: 5px;
+			list-style: none;
+			background: #3e6a7d;
+			cursor: pointer;
+			-webkit-tap-highlight-color: rgba(0,0,0,0);
+			
+			height: 8px;
+			width: 8px;
+			.border-radius(50%);
+			.box-shadow( 0 0 1px 1px rgba(255, 255, 255, 0.5) );
+
+			&.selected {
+				background: rgba(255,255,255,.66);
+				border: 1px solid #fff;
+				.box-shadow(none);
+				margin: 4px 4px;
+				.transition(background .3s ease);
+			}
+		}
+	}
+
+}
+
+
+
+
+footer#contact-us {
+	text-align: center;
+	padding: 25% 0;
+	a {
+		font-size: 1.5em;
+	}
+	// larger font for smartphones - wrap on 2 lines
+	@media only screen and (max-width: 320px) {
+		font-size: 1.4em;
+	}
+}
+
 
 
 
 
 /*
-* Breakpoint - Widescreen
+* Breakpoint - Minimum 600px wide - only target wide screens)
+*/
+@media only screen and (min-width: 601px) {
+
+	// only load large wide images for wide screens
+	.webuild {	
+		background: url('assets/background-blue-box.png') no-repeat;
+		background-size: 100% 100%;
+
+		h3 {
+			width: 16%;
+			text-align: center;
+			padding-top: .2em;
+			padding-bottom: 0;
+		}
+
+	}
+}
+
+
+/*
+* Breakpoint - only Widescreen
 */
 @media only screen and (max-width: 1200px) {
 
@@ -385,6 +602,12 @@ h3.contact {
 		font-size: ( 50 / @font-size ) * @em;
 	}
 
+	// smaller size on quotes
+	.quotes-3d {
+		width: 300px;
+		height: 182px;
+		font-size: 14px;
+	}
 	
 }
 
@@ -400,27 +623,47 @@ h3.contact {
 	h1 {
 		font-size: ( 40 / @font-size ) * @em;
 	}
+	h4 {
+		font-size: 17px;
+	}
 
 	.column-third, .column-two {
-		width: 100%;
+		width: 100% !important;
 		padding-bottom: 2em;
 	}
-	
-	#work figure > img {
-		.border-box;
-
-		width: 40%;
-		padding: 0 2em 0 0;
-		float: left;
-
-		background: none;
+	.column-third + .column-third {
+		margin-left: 0 !important;
 	}
 
-	#work figure > figcaption {
-		.border-box;
+	// go back to default padding on about text
+	.about-text {
+		.column
+	}
+	// switch quotes carousel to inline
+	.quotes-3d {
+		position: static;
+		margin: 30px auto;
+		float: none;
+	}
+	
+	#work figure {
+		text-align: center;
+		.border {
+			margin: 0 auto;
+		}
+		> img {
+			.border-box;
+			width: 40%;
+			padding: 0 2em 0 0;
+			background: none;
+		}
 
-		width: 60%;
-		float: left;
+		> figcaption {
+			.border-box;
+			text-align: left;
+			max-width: 350px;
+			padding: .75em;
+		}
 	}
 
 }
@@ -434,6 +677,31 @@ h3.contact {
 		font-size: .65em;
 	}
 	
+	// bigger pagination links for fat fingers
+	.quotes-3d {
+		.pagination li {
+			width: 20px;
+			height: 20px;
+		}
+	}
+
+	// scale up images to full width
+	.we-build-responsive,
+	.we-build-interactive,
+	.we-build-mobile {
+		padding: 0;
+		img {
+			max-width: 100%;
+			margin: 3em 0;
+		}
+	}
+	#about {
+		h3:after {
+			content: "...";
+		}
+
+	}
+
 }
 
 /*
@@ -441,7 +709,7 @@ h3.contact {
 */
 @media only screen and (max-width: 320px) {
 
-	
+
 }
 
 
