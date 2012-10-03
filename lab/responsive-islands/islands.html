@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>14islands</title>
+	<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+	<style>
+		body {
+			background: #f9f9f9;
+			font-family: Helvetica, arial;
+			color: #444;
+			margin: 1em;
+		}
+		h1 {
+			font-family: 'Yanone Kaffeesatz', sans-serif;
+			text-shadow: 0 2px white;
+			color: #222;
+		}
+		h2 {
+			font-weight: normal;
+			font-size: 1em;
+		}
+		figure {
+			text-align: center;
+			background: url(island-basic.png) center center no-repeat;
+			background-size: contain;
+			height: 200px;
+			width: 100%;
+			margin: 7% auto 0;
+		}
+		figcaption {
+			position: absolute;
+			bottom: 1em;
+			margin-top: .5em;
+			color: #ccc;
+		}
+		figcaption.medium,
+		figcaption.advanced {
+      display: none;
+    }
+		b {
+			font-weight: normal;
+		}
+
+		/* iPhone5 is 568 wide in landscape */
+    @media screen and (min-width: 600px) {
+      figcaption.basic {
+      	display: none;
+      }
+      figcaption.medium {
+      	display: block;
+      }
+      body {
+      	padding: 1em 2em;
+      } 
+      h2 {
+				font-size: 2em;
+			}
+      b {
+				font-weight: bold;
+			}
+			figure {
+				height: 300px;
+				background-image: url(island-medium.png) 
+			}
+
+    }
+    /* nexus7 is 800px wide in portrait */
+    @media screen and (min-width: 801px) {
+      figcaption.medium {
+      	display: none;
+      }
+      figcaption.advanced {
+      	display: block;
+      }
+      h2 {
+				font-size: 3em;
+			}
+			figure {
+				height: 400px;
+				background-image: url(island-advanced.png) 
+			}
+    }
+
+	</style>
+</head>
+<body>
+
+	<header>
+		<h1>14islands</h1>
+		<h2>We build <b>elegant</b> websites using <b>modern</b> web standards and <b>cutting edge</b> technologies.</h2>
+
+		<figure>
+			<figcaption class="basic">Basic island - Smartphone-ish size</figcaption>
+			<figcaption class="medium">Medium island - Tablet-ish size</figcaption>
+			<figcaption class="advanced">Advanced island - Desktop-ish size</figcaption>
+		</figure>
+
+	</header>
+
+
+</body>
+</html>
