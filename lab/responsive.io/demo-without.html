@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>PoC - responsive.io</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+	<style>
+		html, body {
+			height: 100%;
+			margin: 0;
+			padding: 2em;
+		}
+		h2 {
+			margin-top: 2em;
+		}
+		p {
+			background: #eee;
+		}
+		img {
+			display: block;
+		}
+	</style>
+</head>
+<body>
+
+	<h1>Demo WITHOUT responsive.io</h1>
+	<p><b>*** using normal img-tags ***</b></p>
+	
+	<h2>width: 100%;</h2>
+	<p><img src="test-images/1.jpg" alt="A responsive image" style="width:100%;"/></p>
+
+	<h2>max-width: 100%;</h2>
+	<p>
+		<img src="test-images/2.jpg" alt="A responsive image" style="max-width:100%;"/>
+	</p>
+
+	<h2>max-width: 50%;</h2>
+	<p>
+		<img src="test-images/3.jpg" alt="A responsive image" style="max-width:50%"/>
+	</p>
+
+	<h2>width: 100%; max-width: 400px;</h2>
+	<p>
+		<img src="test-images/4.jpg" alt="A responsive image" style="width: 100%; max-width:400px"/>
+	</p>
+
+	<h2>width: 100%; min-width: 400px;</h2>
+	<p>
+		<img src="test-images/5.jpg" alt="A responsive image" style="width:100%; min-width:400px;"/>
+	</p>
+
+
+</body>
+</html>
