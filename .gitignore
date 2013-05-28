@@ -1,2 +1,3 @@
 *.sublime*
 ws.js
+.DS_Store
