@@ -6,8 +6,17 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
+	<script>
+		var startTime = Date.now();
+		window.onload = function () {
+			var loadedTime = Date.now();
+			var label = document.getElementById('timeLabel');
+			label.textContent = 'onload triggered after ' + ((loadedTime - startTime) * .001) + ' s';
+		}
+	</script>
+
 	<!-- load responsiveio.js non-blocking -->
-	<script src="http://direct.responsive.io/responsiveio.js" async defer></script>
+	<script src="http://src.responsive.io/responsiveio.js" async defer></script>
 
 	<style>
 		html, body {
@@ -30,6 +39,8 @@
 
 	<h1>Demo WITH responsive.io</h1>
 	<p><b>*** remember to re-load on window resize ***</b></p>
+
+	<p><span id="timeLabel"></span></p>
 	
 	<h2>width: 100%;</h2>
 	<p><img data-src="test-images/1.jpg" alt="A responsive image" style="width:100%;"/></p>

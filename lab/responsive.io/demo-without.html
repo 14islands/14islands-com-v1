@@ -6,6 +6,15 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
+	<script>
+		var startTime = Date.now();
+		window.onload = function () {
+			var loadedTime = Date.now();
+			var label = document.getElementById('timeLabel');
+			label.textContent = 'onload triggered after ' + ((loadedTime - startTime) * .001) + ' s';
+		}
+	</script>
+
 	<style>
 		html, body {
 			height: 100%;
@@ -27,6 +36,8 @@
 
 	<h1>Demo WITHOUT responsive.io</h1>
 	<p><b>*** using normal img-tags ***</b></p>
+
+	<p><span id="timeLabel"></span></p>
 	
 	<h2>width: 100%;</h2>
 	<p><img src="test-images/1.jpg" alt="A responsive image" style="width:100%;"/></p>
