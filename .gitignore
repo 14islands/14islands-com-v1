@@ -1,3 +1,4 @@
 *.sublime*
 ws.js
 .DS_Store
+node_modules
