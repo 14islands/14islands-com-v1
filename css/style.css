@@ -155,7 +155,6 @@ p {
   box-sizing: border-box;
 }
 .column-wide {
-  *zoom: 1;
   max-width: 960px;
   width: 99%;
   position: relative;
@@ -329,6 +328,7 @@ h3.contact a:hover {
   margin: 0 -4% 1em -4%;
   border-radius: 0.9375em;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  width: 100%;
 }
 #work figure img {
   -webkit-box-sizing: border-box;
@@ -496,11 +496,11 @@ h3.contact a:hover {
   left: 85px;
   height: 35px;
   width: 200px;
-  -webkit-transform: translatez(1px);
-  -moz-transform: translatez(1px);
-  -ms-transform: translatez(1px);
-  -o-transform: translatez(1px);
-  transform: translatez(1px);
+  -webkit-transform: translateZ(1px);
+  -moz-transform: translateZ(1px);
+  -ms-transform: translateZ(1px);
+  -o-transform: translateZ(1px);
+  transform: translateZ(1px);
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   -ms-backface-visibility: hidden;
@@ -530,11 +530,11 @@ h3.contact a:hover {
   left: 13px;
   width: 70px;
   height: 55px;
-  -webkit-transform: translatez(10px);
-  -moz-transform: translatez(10px);
-  -ms-transform: translatez(10px);
-  -o-transform: translatez(10px);
-  transform: translatez(10px);
+  -webkit-transform: translateZ(10px);
+  -moz-transform: translateZ(10px);
+  -ms-transform: translateZ(10px);
+  -o-transform: translateZ(10px);
+  transform: translateZ(10px);
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   -ms-backface-visibility: hidden;
@@ -564,18 +564,18 @@ h3.contact a:hover {
   background-color: rgba(0, 0, 0, 0.3);
 }
 .quotes-3d.vertical .before {
-  -webkit-transform: rotatex(90deg);
-  -moz-transform: rotatex(90deg);
-  -ms-transform: rotatex(90deg);
-  -o-transform: rotatex(90deg);
-  transform: rotatex(90deg);
+  -webkit-transform: rotateX(90deg);
+  -moz-transform: rotateX(90deg);
+  -ms-transform: rotateX(90deg);
+  -o-transform: rotateX(90deg);
+  transform: rotateX(90deg);
 }
 .quotes-3d.vertical .after {
-  -webkit-transform: rotatex(-90deg);
-  -moz-transform: rotatex(-90deg);
-  -ms-transform: rotatex(-90deg);
-  -o-transform: rotatex(-90deg);
-  transform: rotatex(-90deg);
+  -webkit-transform: rotateX(-90deg);
+  -moz-transform: rotateX(-90deg);
+  -ms-transform: rotateX(-90deg);
+  -o-transform: rotateX(-90deg);
+  transform: rotateX(-90deg);
 }
 .quotes-3d.vertical blockquote {
   -webkit-transform-origin: 50% 50% -101.5px;
@@ -585,18 +585,18 @@ h3.contact a:hover {
   transform-origin: 50% 50% -101.5px;
 }
 .quotes-3d.horizontal .before {
-  -webkit-transform: rotatey(-90deg);
-  -moz-transform: rotatey(-90deg);
-  -ms-transform: rotatey(-90deg);
-  -o-transform: rotatey(-90deg);
-  transform: rotatey(-90deg);
+  -webkit-transform: rotateY(-90deg);
+  -moz-transform: rotateY(-90deg);
+  -ms-transform: rotateY(-90deg);
+  -o-transform: rotateY(-90deg);
+  transform: rotateY(-90deg);
 }
 .quotes-3d.horizontal .after {
-  -webkit-transform: rotatey(90deg);
-  -moz-transform: rotatey(90deg);
-  -ms-transform: rotatey(90deg);
-  -o-transform: rotatey(90deg);
-  transform: rotatey(90deg);
+  -webkit-transform: rotateY(90deg);
+  -moz-transform: rotateY(90deg);
+  -ms-transform: rotateY(90deg);
+  -o-transform: rotateY(90deg);
+  transform: rotateY(90deg);
 }
 .quotes-3d.horizontal blockquote {
   -webkit-transform-origin: 50% 50% -167px;
