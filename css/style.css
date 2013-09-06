@@ -667,9 +667,13 @@ footer#contact-us a {
     box-sizing: border-box;
   }
   .quotes-3d {
-    position: static;
+    position: relative;
     margin: 30px auto;
     float: none;
+    top: auto;
+    bottom: auto;
+    right: auto;
+    left: auto;
   }
   #work figure {
     text-align: center;
