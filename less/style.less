@@ -383,9 +383,9 @@ h3.contact {
 	// base font size for module
 	font-size: 16px;
 
-	.perspective( 600px );    
-	.perspective-origin( 50% 50% );
-	.transform-origin( 50% 50%  (@quotesHeight/2) * @px );
+	// .perspective( 600px );    
+	// .perspective-origin( 50% 50% );
+	// .transform-origin( 50% 50%  (@quotesHeight/2) * @px );
 	
 	blockquote {
 		
@@ -400,14 +400,16 @@ h3.contact {
 		top:0; bottom:0;
 		left:0; right:0;
 		background-color: rgba(0,0,0,0);
-	 	.backface-visibility( hidden );
-    .transform-style( preserve-3d );
+	 	// .backface-visibility( hidden );
+   //  .transform-style( preserve-3d );
+
+   .transform( translateY(0) );
 
     >div {
 			padding: 50px 20px;
 			.box-sizing(border-box);
 			height: 100%;
-			.transition( all .7s cubic-bezier(0.230, 1.000, 0.320, 1.000) );
+			// .transition( all .7s cubic-bezier(0.230, 1.000, 0.320, 1.000) );
 
 			p {
 				color: @bronze;
@@ -432,13 +434,14 @@ h3.contact {
 				left: 85px;
 				height: 35px;
 				width: 200px;
-				.transform( translateZ(1px) );
-				.backface-visibility( hidden ); 
+				// .transform( translateZ(1px) );
+				// .backface-visibility( hidden ); 
 			}
     }
 
     // size quote content to fill box
-    &.paul p {
+    &.paul p,
+    &.kris p {
 			font-size: ( 18 / 16 ) * @em;
 		}
 		&.hakim p {
@@ -447,6 +450,19 @@ h3.contact {
 		}
 		&.thodoris p {
 			font-size: ( 20 / 16 ) * @em;
+		}
+
+		&.paul {
+			z-index: 1000;
+		}
+		&.kris {
+			z-index: 900;
+		}
+		&.thodoris {
+			z-index: 800;
+		}
+		&.hakim {
+			z-index: 700;
 		}
 		
 		&:before, 
@@ -459,8 +475,8 @@ h3.contact {
 			left: 13px;
 			width: 70px;
 			height: 55px;
-			.transform( translateZ(10px) );
-			.backface-visibility( hidden ); 
+			// .transform( translateZ(10px) );
+			// .backface-visibility( hidden ); 
 		}
 		&:after {
 			background-position: 0 -52px;
@@ -469,43 +485,50 @@ h3.contact {
 	}
 	
 	.rolling {
+		opacity: 1;
 	  .transition( all .7s cubic-bezier(0.230, 1.000, 0.320, 1.000) );
 	}
 
-	.before >div {
-		color: rgba(255,255,255,0);
- 		background-color: rgba(255,255,255,.2);
-	}	
-	.after >div {
-		color: rgba(0,0,0,0);
-  	background-color: rgba(0,0,0,0.3);
-	}
+	// .before >div {
+	// 	color: rgba(255,255,255,0);
+ // 		background-color: rgba(255,255,255,.2);
+	// }	
+	// .after >div {
+	// 	color: rgba(0,0,0,0);
+ //  	background-color: rgba(0,0,0,0.3);
+	// }
 
 	&.vertical .before {
-		.transform( rotateX(90deg) );
+		// .transform( rotateX(90deg) );
+		.transform( translateY(30%) );
+		opacity: 0;
 	}
 	&.vertical .after {
-		.transform( rotateX(-90deg) );
+		// .transform( rotateX(-90deg) );
+		.transform( translateY(-30%) );
+		opacity: 0;
 	}
 	&.vertical blockquote {
-		.transform-origin( 50% 50%  -(@quotesHeight/2) * @px );
+		// .transform-origin( 50% 50%  -(@quotesHeight/2) * @px );
 	}
 
-	&.horizontal .before {
-		.transform( rotateY(-90deg) );
-	}
-	&.horizontal .after {
-		.transform( rotateY(90deg) );
-	}
-	&.horizontal blockquote {
-		.transform-origin( 50% 50%  -(@quotesWidth/2) * @px );
-	}
+	// &.horizontal .before {
+	// 	.transform( rotateY(-90deg) );
+	// }
+	// &.horizontal .after {
+	// 	.transform( rotateY(90deg) );
+	// }
+	// &.horizontal blockquote {
+	// 	.transform-origin( 50% 50%  -(@quotesWidth/2) * @px );
+	// }
 
 	.pagination {
 		display: inline-block;
 		padding: 18px;
 		margin-top: 33px;
 		padding-top: ((@quotesHeight/16) * @em);
+		z-index: 2000;
+		position: relative;
 
 		li {
 			display: inline-block;

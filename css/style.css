@@ -420,21 +420,6 @@ h3.contact a:hover {
   height: 203px;
   text-align: center;
   font-size: 16px;
-  -webkit-perspective: 600px;
-  -moz-perspective: 600px;
-  -ms-perspective: 600px;
-  -o-perspective: 600px;
-  perspective: 600px;
-  -webkit-perspective-origin: 50% 50%;
-  -moz-perspective-origin: 50% 50%;
-  -ms-perspective-origin: 50% 50%;
-  -o-perspective-origin: 50% 50%;
-  perspective-origin: 50% 50%;
-  -webkit-transform-origin: 50% 50% 101.5px;
-  -moz-transform-origin: 50% 50% 101.5px;
-  -ms-transform-origin: 50% 50% 101.5px;
-  -o-transform-origin: 50% 50% 101.5px;
-  transform-origin: 50% 50% 101.5px;
 }
 .quotes-3d blockquote {
   background: url('assets/background-quotes-border.png') 0 0 no-repeat, url('assets/background-blue.jpg') 0 0;
@@ -449,16 +434,11 @@ h3.contact a:hover {
   left: 0;
   right: 0;
   background-color: rgba(0, 0, 0, 0);
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
-  -ms-backface-visibility: hidden;
-  -o-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
-  -o-transform-style: preserve-3d;
-  transform-style: preserve-3d;
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  transform: translateY(0);
 }
 .quotes-3d blockquote > div {
   padding: 50px 20px;
@@ -466,11 +446,6 @@ h3.contact a:hover {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   height: 100%;
-  -webkit-transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
-  -moz-transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
-  -ms-transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
-  -o-transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
-  transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
 }
 .quotes-3d blockquote > div p {
   color: #d1c9aa;
@@ -496,18 +471,9 @@ h3.contact a:hover {
   left: 85px;
   height: 35px;
   width: 200px;
-  -webkit-transform: translateZ(1px);
-  -moz-transform: translateZ(1px);
-  -ms-transform: translateZ(1px);
-  -o-transform: translateZ(1px);
-  transform: translateZ(1px);
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
-  -ms-backface-visibility: hidden;
-  -o-backface-visibility: hidden;
-  backface-visibility: hidden;
 }
-.quotes-3d blockquote.paul p {
+.quotes-3d blockquote.paul p,
+.quotes-3d blockquote.kris p {
   font-size: 1.125em;
 }
 .quotes-3d blockquote.hakim p {
@@ -516,6 +482,18 @@ h3.contact a:hover {
 }
 .quotes-3d blockquote.thodoris p {
   font-size: 1.25em;
+}
+.quotes-3d blockquote.paul {
+  z-index: 1000;
+}
+.quotes-3d blockquote.kris {
+  z-index: 900;
+}
+.quotes-3d blockquote.thodoris {
+  z-index: 800;
+}
+.quotes-3d blockquote.hakim {
+  z-index: 700;
 }
 .quotes-3d blockquote:before,
 .quotes-3d blockquote:after {
@@ -530,16 +508,6 @@ h3.contact a:hover {
   left: 13px;
   width: 70px;
   height: 55px;
-  -webkit-transform: translateZ(10px);
-  -moz-transform: translateZ(10px);
-  -ms-transform: translateZ(10px);
-  -o-transform: translateZ(10px);
-  transform: translateZ(10px);
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
-  -ms-backface-visibility: hidden;
-  -o-backface-visibility: hidden;
-  backface-visibility: hidden;
 }
 .quotes-3d blockquote:after {
   background-position: 0 -52px;
@@ -549,67 +517,36 @@ h3.contact a:hover {
   right: 0;
 }
 .quotes-3d .rolling {
+  opacity: 1;
   -webkit-transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
   -moz-transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
   -ms-transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
   -o-transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
   transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
 }
-.quotes-3d .before > div {
-  color: rgba(255, 255, 255, 0);
-  background-color: rgba(255, 255, 255, 0.2);
-}
-.quotes-3d .after > div {
-  color: rgba(0, 0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.3);
-}
 .quotes-3d.vertical .before {
-  -webkit-transform: rotateX(90deg);
-  -moz-transform: rotateX(90deg);
-  -ms-transform: rotateX(90deg);
-  -o-transform: rotateX(90deg);
-  transform: rotateX(90deg);
+  -webkit-transform: translateY(30%);
+  -moz-transform: translateY(30%);
+  -ms-transform: translateY(30%);
+  -o-transform: translateY(30%);
+  transform: translateY(30%);
+  opacity: 0;
 }
 .quotes-3d.vertical .after {
-  -webkit-transform: rotateX(-90deg);
-  -moz-transform: rotateX(-90deg);
-  -ms-transform: rotateX(-90deg);
-  -o-transform: rotateX(-90deg);
-  transform: rotateX(-90deg);
-}
-.quotes-3d.vertical blockquote {
-  -webkit-transform-origin: 50% 50% -101.5px;
-  -moz-transform-origin: 50% 50% -101.5px;
-  -ms-transform-origin: 50% 50% -101.5px;
-  -o-transform-origin: 50% 50% -101.5px;
-  transform-origin: 50% 50% -101.5px;
-}
-.quotes-3d.horizontal .before {
-  -webkit-transform: rotateY(-90deg);
-  -moz-transform: rotateY(-90deg);
-  -ms-transform: rotateY(-90deg);
-  -o-transform: rotateY(-90deg);
-  transform: rotateY(-90deg);
-}
-.quotes-3d.horizontal .after {
-  -webkit-transform: rotateY(90deg);
-  -moz-transform: rotateY(90deg);
-  -ms-transform: rotateY(90deg);
-  -o-transform: rotateY(90deg);
-  transform: rotateY(90deg);
-}
-.quotes-3d.horizontal blockquote {
-  -webkit-transform-origin: 50% 50% -167px;
-  -moz-transform-origin: 50% 50% -167px;
-  -ms-transform-origin: 50% 50% -167px;
-  -o-transform-origin: 50% 50% -167px;
-  transform-origin: 50% 50% -167px;
+  -webkit-transform: translateY(-30%);
+  -moz-transform: translateY(-30%);
+  -ms-transform: translateY(-30%);
+  -o-transform: translateY(-30%);
+  transform: translateY(-30%);
+  opacity: 0;
 }
 .quotes-3d .pagination {
   display: inline-block;
   padding: 18px;
   margin-top: 33px;
   padding-top: 12.6875em;
+  z-index: 2000;
+  position: relative;
 }
 .quotes-3d .pagination li {
   display: inline-block;
