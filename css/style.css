@@ -349,6 +349,10 @@ h3.contact a:hover {
 #work .column-third {
   width: 31.666666666666668%;
 }
+#work .work-section {
+  clear: both;
+  padding-bottom: 10px;
+}
 #work .column-third + .column-third {
   margin-left: 2.5%;
 }
