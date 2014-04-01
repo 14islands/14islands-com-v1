@@ -1,0 +1,442 @@
+
+/********* LAYOUT ********/
+html, body {
+	height: 100%;
+}
+
+body {
+	color: #6f7276;
+	background: #f3f3f3;
+
+	-webkit-text-size-adjust: none;
+	   -moz-text-size-adjust: none;
+      -ms-text-size-adjust: none;
+
+  &.lightbox--open,
+	&.menu-modal--open {
+		overflow: hidden;
+	}
+}
+
+
+.container {
+	max-width: $max-grid-width; // lock it down
+	padding-left: $grid-gutter-width;
+	padding-right: $grid-gutter-width;
+
+	.section--first {
+		padding-top: 50px;
+		@media (min-width: $screen-md-min) {
+			padding-top: 100px;
+			padding-bottom: 8%;
+		}
+	}
+
+	section {
+		padding-top: 70px;
+		padding-bottom: 50px;
+		@media (min-width: $screen-md-min) {
+			padding-top: 90px;
+			padding-bottom: 90px;
+		}
+	}
+}
+article.container {
+	background: #ffffff;
+}
+
+.row {
+	margin-left: -$grid-gutter-width;
+	margin-right: -$grid-gutter-width;
+
+	div[class^="col"],
+	.column-padding {
+		padding-left: $grid-gutter-width;
+		padding-right: $grid-gutter-width;
+	}
+}
+
+.section--blue {
+	background-color: #1ca8dd;
+	color: #ffffff;
+}
+
+.section--orange {
+	background-color: #f6772c;
+	color: #ffffff;
+}
+
+.section--light-orange {
+	background-color: #ffbb42;
+	color: #ffffff;
+}
+
+.section--dark {
+	background-color: #1f2228;
+	color: #ffffff;
+}
+
+.section--darker {
+	background-color: #191b1f;
+	color: #ffffff;
+}
+
+.section--darkest {
+	background-color: #0e0e0e;
+	color: #ffffff;
+}
+
+.section--green {
+	background-color: #9aca40;
+	color: #ffffff;
+}
+
+.section--grey {
+	background-color: #e5e9ea;
+	color: #55575d;
+	h2 {
+		color: #55575d;
+	}
+}
+
+.section--light-grey {
+	background-color: #fafbfb;
+	color: #848589;
+	h2 {
+		color: #55575d;
+	}
+}
+
+.section--medium-grey {
+	background-color: #acb7ba;
+	color: #ffffff;
+	h2 {
+		color: #ffffff;
+	}
+}
+
+.section--white {
+	background-color: #ffffff;
+	color: #5c5d60;
+	h2 {
+		color: #5c5d60;
+	}
+}
+
+.section--gray-blue {
+	background-color: #91a8ae;
+	color: #ffffff;
+}
+
+.section--light-gray-blue {
+	background-color: #a1aeb2;
+	color: #ffffff;
+}
+
+.section--pink {
+	background-color: #f13c6e;
+	color: #ffffff;
+}
+
+.section--centered {
+	text-align: center;
+	h1, h2, h3, h4, h5, h6, p {
+		margin-left: auto;
+		margin-right: auto;
+		text-align: center;
+	}
+	.section--centered__text {
+		backface-visibility: hidden; // fix 1px snap on text when animations are running nearby
+		max-width: 1020px;
+		margin: 0 auto;
+		float: none;
+	}
+}
+
+.section--full-width,
+.section--centered--full-width {
+	padding-left: 0;
+	padding-right: 0;
+	div[class^="col"].section--centered__image {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+.section--centered__image {
+	text-align: center;
+	img, video {
+		max-width: 100%;
+		height: auto;
+	}
+	figcaption {
+		font-size: 15px;
+		font-style: italic;
+		max-width: 950px;
+		margin: 0 auto;
+		margin-top: 2em;
+		text-align: left;
+	}
+}
+.section--centered__text + .section--centered__image,
+.section--centered__image + .section--centered__text {
+	margin-top: $grid-gutter-width * 2;
+}
+
+.container section.basic-hero {
+	padding-top: 9%;
+	padding-bottom: 3%;
+}
+
+.feature-list {
+	margin-top: 1em;
+	@extend %font-proxima--semibold;
+	font-size: 12px;
+	text-transform: uppercase;
+	list-style: none;
+	display: inline-block;
+	min-width: 270px;
+	li {
+		padding-top: .1em;
+		line-height: 2.4em;
+		position: relative;
+	}
+	li + li {
+		border-top: 1px solid #1292c2;
+		.section--dark & {
+			border-top: 1px solid #43464b;
+		}
+	}
+}
+.feature-list__icon:before {
+	@extend %icon-single-glass;
+	content: "";
+	position: absolute;
+	left: -33px;
+	top: 7px;
+}
+.feature-list__icon--single-glass:before {
+	@extend %icon-single-glass;
+}
+.feature-list__icon--customizable:before {
+	@extend %icon-customizable;
+}
+.feature-list__icon--insights:before {
+	@extend %icon-insights;
+}
+.feature-list__icon--self-learning:before {
+	@extend %icon-self-learning;
+}
+.feature-list__icon--realtime:before {
+	@extend %icon-realtime;
+}
+.feature-list__icon--scalable:before {
+	@extend %icon-scalable;
+}
+
+
+div[class^="col"] {
+	&.section--alternate__image {
+		text-align: center;
+		img, video {
+			max-width: 100%;
+			height: auto;
+		}
+		// float every other image to the right when grid is active
+		@media (min-width: $screen-md-min) {
+			.section--alternate:nth-child(odd) &,
+			.section--alternate--odd & {
+				float: right;
+			}
+			.section--alternate:nth-child(odd).section--alternate--even & {
+				float: left;
+			}
+		}
+	}
+	&.section--alternate__text {
+		backface-visibility: hidden; // fix 1px snap on text when animations are running nearby
+
+		margin-top: $grid-gutter-width * 2;
+		@media (min-width: $screen-md-min) {
+			float: none;
+			margin-top: auto;
+			p {
+				max-width: 550 + $grid-gutter-width;
+				padding-right: $grid-gutter-width;
+			}
+			// float every other text to the right when grid is active
+			.section--alternate:nth-child(even) &,
+			.section--alternate:nth-child(odd).section--alternate--even & {
+				float: left;
+				padding-left: $grid-gutter-width * 2;
+			}
+			.section--alternate:nth-child(even).section--alternate--odd & {
+				float: none;
+				padding-left: $grid-gutter-width;
+			}
+		}
+	}
+}
+
+/* Display for 2 column layout (see /customers) */
+section.section--display {
+	padding-top: 60px;
+	padding-bottom: 60px;
+	.section--display__block {
+		margin-bottom: 30px;
+		padding: 0;
+		height: 400px;
+		overflow: hidden;
+		border-bottom: 4px solid #eeeeee;
+		background-color: #fff;
+		text-align: left;
+		img, video {
+			display: block;
+			width: 100%;
+			height: auto;
+		}
+	}
+	.section--display__image {
+		position: relative;
+		img {
+			display: block;
+			width: 100%;
+			height: auto;
+		}
+		.display-meta-posted {
+			position: absolute; left: 30px; bottom: 15px;
+			color: #ffffff;
+			opacity: 0.63;
+		}
+	}
+	.section--display__header {
+
+	}
+	.section--display__content {
+		padding: 20px 30px;
+		h3 {
+			margin-top: 5px;
+			color: #55575d;
+		}
+	}
+	.section--display__event {
+	}
+	.display-meta {
+		font-size: 14px;
+		text-transform: uppercase;
+		.display-meta-author,
+		.display-meta-dates {
+			color: #55575d;
+			opacity: 0.51;
+		}
+		.display-meta-category {
+			margin-left: 10px;
+			padding-left: 10px;
+			border-left: 1px solid #e5e5e5;
+			color: #f13c6e;
+			opacity: 1;
+		}
+	}
+}
+
+/* Display for customer article */
+section.section--article {
+	padding-left: 50px;
+	padding-right: 50px;
+	&.row {}
+
+	.section--article__text {
+		p {
+			margin: 0 0 38px;
+			color: #262930;
+			font-size: 1.1em;
+			line-height: 1.8em;
+		}
+		p.lead {
+			font-size: 1.13em;
+			line-height: 1.6em;
+			font-family: 'ProximaNova-Semibold';
+		}
+	}
+	.section--article__highlights {
+		h3 {
+			display: block;
+			margin-top: 0;
+			color: #262930;
+			font-family: "ProximaNova-Semibold", "Helvetica Neue", helvetica, arial, sans-serif;
+			font-size: 0.8125em;
+			text-transform: uppercase;
+		}
+		ul {
+			margin: 0 2em 0 0; padding: 0; list-style: none;
+			font-size: 0.8125em;
+			li {
+				padding: 10px 0;
+				border-top: 1px solid #f3f3f3;
+			}
+		}
+	}
+	.section--article__image {
+		margin: 20px 0 50px 0;
+		text-align: left;
+		img {
+			border: 1px solid #e3e3e3;
+			max-width: 100%;
+			height: auto;
+		}
+		figcaption {
+			padding-top: 1.123456789em;
+			border-top: 1px solid #e4e4e4;
+			font-size: 15px;
+			font-style: italic;
+			text-align: left;
+		}
+	}
+	blockquote {
+		margin: 20px 0 50px 0;
+		padding: 0;
+		border: 0;
+		p {
+			color: #1d222c;
+			font-family: 'ProximaNova-Semibold';
+			font-size: 28px;
+			font-style: italic;
+			font-weight: normal;
+			line-height: 40px;
+			text-align: center;
+			&:before {
+				content: "“"
+			}
+			&:after {
+				content: "”"
+			}
+		}
+	}
+}
+
+/* Ipad sized grid for alternating layout */
+@media (min-width: $screen-md-min) and (max-width: $screen-lg-min - 1px) {
+	div[class^="col"] {
+		&.section--alternate__image,
+		&.section--alternate__text {
+			width: 50%;
+		}
+	}
+}
+
+/* LARGER GRID MARGINS FOR BIG SCREENS */
+@media (min-width: $screen-lg-min) {
+
+		div[class^="col"]{
+			padding-left: $grid-gutter-width;
+			padding-right: $grid-gutter-width;
+		}
+
+		.header,
+		section,
+		.section-padding {
+				padding-left: 50px;
+				padding-right: 50px;
+		}
+}
+

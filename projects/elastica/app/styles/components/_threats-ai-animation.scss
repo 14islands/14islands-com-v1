@@ -1,0 +1,157 @@
+$canvas-width: 914px;
+$canvas-height: 554px;
+
+$aspect-ratio: $canvas-width / $canvas-height;
+
+
+$tower-width: 9.3%;
+$tower-height: 87%;
+$tower-x: 43.3%;
+
+$animation-duration: 1.5s;
+$animation-delay: 1s;
+
+
+.threats-ai-animation {
+	display: inline-block;
+	position: relative;
+	width: 90.5%;
+	margin-left: 9.5%;
+	max-width: $canvas-width;
+
+	canvas {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+// prevent reflows when image loads
+.threats-ai-animation__ratio {
+	@include responsive-ratio($canvas-width, $canvas-height);
+}
+
+.threats-ai-animation__ratio__tower {
+	position: absolute;
+	top: 0;
+	left: $tower-x;
+	height: $tower-height;
+	width: $tower-width;
+	margin-left: -$tower-width/2;
+	border-radius: 3px;
+	overflow:hidden;
+}
+
+.threats-ai-animation__ratio__tower__cell {
+	height: 25%;
+
+	&:nth-child(1) {
+		background: #f13d70;
+	}
+	&:nth-child(2) {
+		background: #f6752b;
+	}
+	&:nth-child(3) {
+		background: #ffbd44;
+	}
+	&:nth-child(4) {
+		background: #9bca40;
+	}
+}
+
+@keyframes threats-ai-animation__ratio__tower__check {
+	0%   { opacity: 1;transform: none; }
+	45%  { opacity: 0; transform: none; }
+	49%  { opacity: 0; transform: translateY(-210%) }
+	50%  { opacity: 1; transform: translateY(-210%) }
+	100% { opacity: 1; transform: translateY(-210%) }
+}
+@keyframes threats-ai-animation__ratio__tower__check__ring {
+	0%  { transform: none;  }
+	45% { transform: none; }
+	46% { transform: scale(0.2); }
+	70, 100% { transform: scale(1); }
+}
+@keyframes threats-ai-animation__ratio__tower__check__mask {
+	0%   { opacity: 0; transform: none; }
+	45%  { opacity: 0; transform: none; }
+	46%  { opacity: 1; transform: none; }
+	60%  { opacity: 1; transform: none; }
+	90%, 100% { opacity: 1; transform: translateX(100%) }
+}
+
+.threats-ai-animation__ratio__tower__check {
+	$size: 68%;
+	position: absolute;
+	top: 62%;
+	left: 50%;
+	width: $size;
+	height: $size * ($tower-width / $tower-height) * $aspect-ratio;
+	margin-left: - $size/2;
+	margin-top: - $size/2;
+
+	.run & {
+		animation-name: threats-ai-animation__ratio__tower__check;
+		animation-duration: $animation-duration;
+		animation-iteration-count: 1;
+		animation-fill-mode: both;
+		animation-delay: $animation-delay;
+	}
+}
+.threats-ai-animation__ratio__tower__check__ring {
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	right: 0;
+	bottom: 0;
+	border-radius: 100%;
+	border: 2px solid #fff;
+	@media (min-width: $screen-sm-min) {
+		border: 4px solid #fff;
+	}
+	@media (min-width: $screen-md-min) {
+		border: 6px solid #fff;
+	}
+
+	.run & {
+		animation-name: threats-ai-animation__ratio__tower__check__ring;
+		animation-duration: $animation-duration;
+		animation-iteration-count: 1;
+		animation-fill-mode: both;
+		animation-delay: $animation-delay;
+	}
+}
+.threats-ai-animation__ratio__tower__check__mark {
+	position: absolute;
+	top: 28%;
+	left: 30%;
+	height: 40%;
+	width: 50%;
+	overflow: hidden;
+
+	> svg {
+		display: block;
+		height: 100%;
+		width: 100%;
+	}
+}
+
+.threats-ai-animation__ratio__tower__check__mask {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: #F6752B;
+	opacity: 0;
+
+	.run & {
+		animation-name: threats-ai-animation__ratio__tower__check__mask;
+		animation-duration: $animation-duration;
+		animation-iteration-count: 1;
+		animation-fill-mode: both;
+		animation-delay: $animation-delay;
+	}
+}

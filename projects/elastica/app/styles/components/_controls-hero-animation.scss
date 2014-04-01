@@ -1,0 +1,166 @@
+$hero-image-width: 476px;
+$hero-image-height: 538px;
+
+$aspect-ratio: $hero-image-width / $hero-image-height;
+$relative-size: 11%;
+
+$border-color: rgba(255,255,255,.3);
+
+$transition-duration: .65s;
+
+.controls-hero-animation {
+	display: inline-block;
+	position: relative;
+
+	max-width: $hero-image-width;
+	width: 100%;
+}
+
+// prevent reflows when image loads
+.controls-hero-animation__ratio {
+	@include responsive-ratio($hero-image-width, $hero-image-height);
+}
+
+.controls-hero-animation__ratio__node {
+	position: absolute;
+	height: $relative-size * $aspect-ratio;
+	width: $relative-size;
+	top: 4%;
+	left: 41%;
+	border-radius: 100%;
+	background: rgba(255,255,255,1);
+
+	box-shadow: none;
+
+	&:after {
+		content: '';
+		position: absolute;
+		top: 39%;
+		left: 39%;
+		right: 39%;
+		bottom: 39%;
+		border-radius: 100%;
+		background: #fff;
+		opacity: 0;
+	}
+
+	// scale border manually since we can't use % for border
+	.run & {
+		transition: transform $transition-duration $easeOutQuad, box-shadow $transition-duration $easeOutQuad;
+
+		&:after {
+			opacity: 1;
+			transition: opacity $transition-duration $easeOutQuad;
+		}
+
+		box-shadow: 0 0 0 12px $border-color;
+		@media (min-width: $hero-image-width*.8) {
+			box-shadow: 0 0 0 15px $border-color;
+		}
+		@media (min-width: $hero-image-width) {
+			box-shadow: 0 0 0 20px $border-color;
+		}
+	}
+}
+
+.controls-hero-animation__ratio__node > .controls-hero-animation__ratio__node {
+	height: 100%;
+	width: 100%;
+	top: 0%;
+	left: 0%;
+}
+
+.controls-hero-animation__ratio__node__leg {
+	position: absolute;
+	top: 50%;
+	left: 49%;
+	right: 50%;
+
+	height: 4%;
+	background: #fff;
+	transform-origin: 0% 0%;
+
+	.run & {
+		transition: right $transition-duration $easeOutQuad;
+	}
+}
+
+@mixin controls-hero-animation-node-leg($left, $top) {
+	.controls-hero-animation__ratio__node__leg {
+		// calculate rotation
+		$deg: rad-to-deg(atan2($top, $left)) - 180;
+		transform: rotate(#{$deg});
+		// calculate length
+		$side1: abs($left);
+		$side2: abs($top);
+		$hypotenuse: sqrt( pow(strip-unit($side1), 2) + pow(strip-unit($side2), 2)) * 1%;
+		$hypotenuse: $hypotenuse - 50%;
+		right: abs($hypotenuse);
+	}
+}
+
+@mixin controls-hero-animation-node($left, $top, $dot-color) {
+	&:after {
+		background: $dot-color;
+	}
+	transform: translate($left, $top);
+	.csstransforms3d & {
+		transform: translate3d($left, $top, 0);
+	}
+	@include controls-hero-animation-node-leg($left, $top);
+}
+
+.run .controls-hero-animation__ratio__node > .controls-hero-animation__ratio__node:nth-child(1) {
+	@include controls-hero-animation-node(-177%, 225%, #1ca8dd);
+
+	& > .controls-hero-animation__ratio__node:nth-child(1) {
+		@include controls-hero-animation-node(-77%, 237%, #f6772c);
+		& > .controls-hero-animation__ratio__node:nth-child(1) {
+			@include controls-hero-animation-node(-76%, 230%, #f13c6e);
+		}
+		& > .controls-hero-animation__ratio__node:nth-child(2) {
+			@include controls-hero-animation-node(137%, 381%, #ffbb42);
+		}
+	}
+	& > .controls-hero-animation__ratio__node:nth-child(2) {
+		@include controls-hero-animation-node(143%, 237%, #9aca40);
+	}
+}
+
+.run .controls-hero-animation__ratio__node > .controls-hero-animation__ratio__node:nth-child(2) {
+	@include controls-hero-animation-node(195%, 225%, #91a8ae);
+
+	& > .controls-hero-animation__ratio__node:nth-child(1) {
+		@include controls-hero-animation-node(199%, 240%, #1ca8dd);
+		& > .controls-hero-animation__ratio__node:nth-child(1) {
+			@include controls-hero-animation-node(-212%, 232%, #ffbb42);
+		}
+		& > .controls-hero-animation__ratio__node:nth-child(2) {
+			@include controls-hero-animation-node(0%, 232%, #f6772c);
+		}
+	}
+}
+
+.run {
+	.controls-hero-animation__ratio__node >
+		.controls-hero-animation__ratio__node {
+			transition-delay: 0, $transition-duration;
+	}
+	.controls-hero-animation__ratio__node >
+		.controls-hero-animation__ratio__node >
+			.controls-hero-animation__ratio__node {
+				transition-delay: $transition-duration, $transition-duration * 2;
+				.controls-hero-animation__ratio__node__leg {
+					transition-delay: $transition-duration;
+				}
+	}
+	.controls-hero-animation__ratio__node >
+		.controls-hero-animation__ratio__node >
+			.controls-hero-animation__ratio__node >
+				.controls-hero-animation__ratio__node {
+					transition-delay: $transition-duration * 2, $transition-duration * 3;
+					.controls-hero-animation__ratio__node__leg {
+						transition-delay: $transition-duration * 2;
+					}
+	}
+}

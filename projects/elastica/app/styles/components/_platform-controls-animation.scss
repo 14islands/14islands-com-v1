@@ -1,0 +1,62 @@
+$aspect-ratio: 455px / 316px;
+$transition: $easeInOutQuad 1200ms;
+
+.platform-controls-animation {
+	display: inline-block;
+	position: relative;
+	max-width: 100%;
+}
+.platform-controls-animation__slider {
+	position: absolute;
+	left: 0;
+	height: 11.5% * $aspect-ratio;
+	width: 11.5%;
+	background: #fff;
+	border-radius: 50%;
+	box-shadow: 0 1px 1px 0px rgba(0, 0, 0, 0.2);
+
+	> span {
+		content: "";
+		position: absolute;
+		background: #ddd;
+		border-radius: 50%;
+		left: 24%;
+		right: 24%;
+		top: 24%;
+		bottom: 24%;
+		transition: background $easeInOutQuad 650ms;
+	}
+
+	transition: transform $easeInOutQuad 650ms;
+}
+.platform-controls-animation__slider--yellow {
+	top: 0%;
+	.platform-controls-animation.run & {
+		>span {
+			background: #ffbb42;
+		}
+		transform: translateX(260%);
+	}
+}
+.platform-controls-animation__slider--blue {
+	top: 38%;
+	.platform-controls-animation.run & {
+		transform: translateX(520%);
+		transition-delay: 300ms;
+		>span {
+			background: #1ca8dd;
+			transition-delay: 300ms;
+		}
+	}
+}
+.platform-controls-animation__slider--green {
+	top: 76%;
+	.platform-controls-animation.run & {
+		transform: translateX(795%);
+		transition-delay: 600ms;
+		>span {
+			background: #9aca40;
+			transition-delay: 600ms;
+		}
+	}
+}

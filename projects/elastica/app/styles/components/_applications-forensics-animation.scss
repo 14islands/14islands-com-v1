@@ -1,0 +1,21 @@
+$bg-image-width: 650px;
+$bg-image-height: 310px;
+
+.apps-forensics-animation {
+	display: inline-block;
+	position: relative;
+	max-width: 100%;
+
+	canvas {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+// prevent reflows when image loads
+.apps-forensics-animation__ratio {
+	@include responsive-ratio($bg-image-width, $bg-image-height);
+}

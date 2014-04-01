@@ -1,0 +1,26 @@
+// _resources.scss
+
+/* RESOURCES */
+
+section.resources-hero:first-child {
+	padding-top: 9em;
+	@media (min-width: $screen-md-min) {
+		padding-top: 10%;
+		padding-bottom: 6%;
+	}
+}
+
+section.resources-content {
+	.row {
+		margin-bottom: 50px;
+	}
+	h3 {
+		margin-top: 10px;
+	}
+	.section--article__text {
+		p {
+			margin-bottom: 0;
+		}
+	}
+}
+

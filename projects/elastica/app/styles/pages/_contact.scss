@@ -1,0 +1,21 @@
+// _contact.scss
+
+section.contact-hero {
+	padding: 0;
+    background-color: #0e0e0e;
+}
+
+#contact-hero-map {
+    background-color: #0e0e0e !important;
+    height: 700px;
+    // Hide copyright, terms of use, report error links in bottom right
+    .gm-style-cc {
+        display: none;
+    }
+}
+
+.contact-pin {
+    width: 100px;
+    height: 100px;
+    background-image: $contact-pin;
+}

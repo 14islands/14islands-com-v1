@@ -1,0 +1,61 @@
+@font-face {
+ font-family: 'ITCAvantGardeStd-Book';
+ src: url("fonts/itc-avant-garde/297F8C_0_0.eot");
+ src: url("fonts/itc-avant-garde/297F8C_0_0.eot?#iefix")
+	 format("embedded-opentype"), url("fonts/itc-avant-garde/297F8C_0_0.woff")
+	 format("woff"), url("fonts/itc-avant-garde/297F8C_0_0.ttf")
+	 format("truetype");
+}
+
+@font-face {
+ font-family: 'ProximaNova-Light';
+ src: url("fonts/proxima-nova/28DC25_9_0.eot");
+ src: url("fonts/proxima-nova/28DC25_9_0.eot?#iefix")
+	 format("embedded-opentype"), url("fonts/proxima-nova/28DC25_9_0.woff")
+	 format("woff"), url("fonts/proxima-nova/28DC25_9_0.ttf")
+	 format("truetype");
+}
+
+@font-face {
+ font-family: 'ProximaNova-Regular';
+ src: url("fonts/proxima-nova/28DC25_B_0.eot");
+ src: url("fonts/proxima-nova/28DC25_B_0.eot?#iefix")
+	 format("embedded-opentype"), url("fonts/proxima-nova/28DC25_B_0.woff")
+	 format("woff"), url("fonts/proxima-nova/28DC25_B_0.ttf")
+	 format("truetype");
+}
+
+@font-face {
+ font-family: 'ProximaNova-Semibold';
+ src: url("fonts/proxima-nova/28DC25_A_0.eot");
+ src: url("fonts/proxima-nova/28DC25_A_0.eot?#iefix")
+	 format("embedded-opentype"), url("fonts/proxima-nova/28DC25_A_0.woff")
+	 format("woff"), url("fonts/proxima-nova/28DC25_A_0.ttf")
+	 format("truetype");
+}
+
+@font-face {
+ font-family: 'ProximaNova-Bold';
+ src: url("fonts/proxima-nova/28DC25_C_0.eot");
+ src: url("fonts/proxima-nova/28DC25_C_0.eot?#iefix")
+ format("embedded-opentype"), url("fonts/proxima-nova/28DC25_C_0.woff")
+ format("woff"), url("fonts/proxima-nova/28DC25_C_0.ttf")
+ format("truetype");
+}
+
+
+%font-avantegarde--book {
+	font-family: "ITCAvantGardeStd-Book", "Helvetica Neue", helvetica, arial, sans-serif;
+}
+%font-proxima--light {
+	font-family: "ProximaNova-Light", "Helvetica Neue", helvetica, arial, sans-serif;
+}
+%font-proxima--regular {
+	font-family: "ProximaNova-Regular", "Helvetica Neue", helvetica, arial, sans-serif;
+}
+%font-proxima--semibold {
+	font-family: "ProximaNova-Semibold", "Helvetica Neue", helvetica, arial, sans-serif;
+}
+%font-proxima--bold {
+	font-family: "ProximaNova-Bold", "Helvetica Neue", helvetica, arial, sans-serif;
+}

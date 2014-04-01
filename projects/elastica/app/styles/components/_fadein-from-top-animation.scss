@@ -1,0 +1,42 @@
+
+
+.fadein-from-top-animation {
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
+	max-width: 100%;
+}
+
+.fadein-from-top-animation__ratio__mask {
+	position: absolute;
+	top: -35%; left: 0; right: 0; bottom: 0%;
+
+	background: linear-gradient(to top, rgba(255, 255, 255, 1) 70%, rgba(255, 255, 255, 0) 100%);
+	backface-visibility: hidden;
+
+	.run & {
+		transition: transform 2s linear;
+		transform: translateY(100%);
+	}
+}
+
+
+.forensics-dots {
+	$bg-image-width: 712px;
+	$bg-image-height: 672px;
+
+	// prevent reflows when image loads
+	.fadein-from-top-animation__ratio {
+		@include responsive-ratio($bg-image-width, $bg-image-height);
+	}
+}
+
+.threats-identification  {
+	$bg-image-width: 348px;
+	$bg-image-height: 448px;
+
+	// prevent reflows when image loads
+	.fadein-from-top-animation__ratio {
+		@include responsive-ratio($bg-image-width, $bg-image-height);
+	}
+}

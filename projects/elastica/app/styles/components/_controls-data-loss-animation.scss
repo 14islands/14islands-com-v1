@@ -1,0 +1,49 @@
+.controls-data-loss-animation {
+	//overflow: hidden;
+	max-width: 100%;
+
+	padding-top: 1.5%;
+	padding-bottom: 9.5%;
+}
+
+.controls-data-loss-animation__container {
+	width: 110%;
+	margin-left: -5%;
+	text-align: center;
+}
+
+.controls-data-loss-animation__container__card {
+	display: inline-block;
+	width: 31%;
+
+	& + .controls-data-loss-animation__container__card {
+		margin-left: 2.2%;
+	}
+
+	&:nth-child(1) {
+		transform: translateX(-100%);
+		.csstransforms3d & {
+			transform: translate3d(-100%,0,0);
+		}
+	}
+	&:nth-child(2) {
+		transform: translateY(150%);
+		.csstransforms3d & {
+			transform: translate3d(0,150%,0);
+		}
+	}
+	&:nth-child(3) {
+		transform: translateX(100%);
+		.csstransforms3d & {
+			transform: translate3d(100%,0,0);
+		}
+	}
+
+	.run & {
+		transition: transform 1.2s $easeOutQuad;
+		transform: none;
+		.csstransforms3d & {
+			transform: none;
+		}
+	}
+}

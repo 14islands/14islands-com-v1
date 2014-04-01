@@ -1,0 +1,179 @@
+// All sizes and distances specified in percentage of max size to be responsive
+
+$aspect-ratio: 0.873;
+$relative-size: 22.4%;
+$max-width-px: 524px;
+
+$background-color: #1F2228;
+$border-width: 3px;
+
+$transition-easing: $easeOutQuart;
+
+$transition-scale-duration: 0.4s;
+$transition-rotation-duration: 2s;
+$transition-satellite-delay: 0.15s;
+$transition-satellite-duration: .8s;
+
+@function abs($val) {
+	@if $val > 0 {
+    $val: $val * -1;
+  }
+  @return $val;
+}
+
+.platform-security {
+	backface-visibility: hidden;
+}
+
+.platform-security-animation {
+	max-width: $max-width-px;
+	width: 100%;
+	display: inline-block;
+}
+.platform-security-animation__ratio {
+	padding-bottom: $aspect-ratio * 100%;
+	height: 0;
+	position: relative;
+}
+
+@keyframes platform-security-animation-rotator {
+	0%   { transform: rotate(-45deg) scale(.3); }
+	20%  { transform: rotate(-45deg) scale(1);  }
+	100% { transform: rotate(0deg)   scale(1);  }
+}
+@keyframes platform-security-animation-core {
+	0%   { transform: rotate(45deg) }
+	20%  { transform: rotate(45deg) }
+	100% { transform: rotate(0) }
+}
+
+.platform-security-animation__rotator {
+	position: absolute;
+	height: $relative-size;
+	width: $relative-size * $aspect-ratio;
+	top: 29%;
+	left: 42%;
+
+	.no-touch & {
+		transform: rotate(-45deg) scale(.2);
+		visibility: hidden;
+	}
+
+	.no-touch .run & {
+		visibility: visible;
+		transform: rotate(0deg) scale(1);
+		animation: $transition-rotation-duration platform-security-animation-rotator $transition-easing 1;
+	}
+}
+
+.platform-security-animation__rotator__core {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	border-radius: 50%;
+	border: $border-width solid #1ca8dd;
+	background: #fff url(/images/logo-mark.svg) no-repeat 54% center;
+	background-size: 52%;
+
+	.no-touch & {
+		transform: rotate(45deg);
+	}
+	.no-touch .run & {
+		visibility: visible;
+		transform: rotate(0);
+		animation: $transition-rotation-duration platform-security-animation-core $transition-easing 1;
+	}
+
+	svg {
+    display: block;
+    width: 54%;
+    height: 100%;
+    margin: auto;
+	}
+}
+
+.platform-security-animation__satellite__core {
+	position: absolute;
+	background: #fff;
+	border-radius: 50%;
+	background: $background-color;
+	.no-touch .run & {
+		transition: transform $transition-satellite-duration $transition-easing;
+	}
+}
+
+.platform-security-animation__satellite__leg {
+	position: absolute;
+	height: 3px;
+	background: #444;
+	top: 50%;
+	left: 50%;
+	right: 50%;
+	transform-origin: 0% 50%;
+	.no-touch .run & {
+		transition: right $transition-satellite-duration $transition-easing;
+	}
+}
+
+@mixin satellite($size, $border-color, $left, $top, $delay) {
+
+	//adjust position based on relative size
+	$sLeft: $left / $size * 100%;
+	$sTop: $top / $size * 100%;
+
+	.platform-security-animation__satellite__core {
+		width: $size;
+		height: $size;
+		top: (100-$size)/2;
+		left: (100-$size)/2;
+		border: $border-width solid $border-color;
+
+		.no-touch & {
+			transition-delay: $delay;
+		}
+
+		transform: translate($sLeft, $sTop);
+		.csstransforms3d & {
+			transform: translate($sLeft, $sTop) translateZ(0);
+		}
+	}
+	.platform-security-animation__satellite__leg {
+		.no-touch & {
+			transition-delay: $delay;
+		}
+
+		// calculate rotation
+		$deg: rad-to-deg(atan2($top, $left));
+		transform: rotate(#{$deg});
+		// calculate length
+		$side1: abs($left);
+		$side2: abs($top);
+		$hypotenuse: sqrt( pow(strip-unit($side1), 2) + pow(strip-unit($side2), 2)) * 1%;
+		$hypotenuse: $hypotenuse - ((100-$size)/2) - $size/2;
+		right: abs($hypotenuse);
+	}
+}
+
+.run .platform-security-animation__satellite:nth-child(1),
+.touch .platform-security-animation__satellite:nth-child(1) {
+	@include satellite(71%, #787b83, -233%, 120%, $transition-scale-duration+$transition-satellite-delay*0);
+}
+.run .platform-security-animation__satellite:nth-child(2),
+.touch .platform-security-animation__satellite:nth-child(2) {
+	@include satellite(62%, #9ec92e, -70%, -140%, $transition-scale-duration+$transition-satellite-delay*1);
+}
+.run .platform-security-animation__satellite:nth-child(3),
+.touch .platform-security-animation__satellite:nth-child(3)  {
+	@include satellite(85%, #d1d5d6, 205%, -30%, $transition-scale-duration+$transition-satellite-delay*2);
+}
+.run .platform-security-animation__satellite:nth-child(4),
+.touch .platform-security-animation__satellite:nth-child(4)  {
+	@include satellite(78%, #ffbb30, -45%, 228%, $transition-scale-duration+$transition-satellite-delay*3);
+}
+.run .platform-security-animation__satellite:nth-child(5),
+.touch .platform-security-animation__satellite:nth-child(5)  {
+	@include satellite(54%, #ffffff, 77%, 120%, $transition-scale-duration+$transition-satellite-delay*4);
+}
+

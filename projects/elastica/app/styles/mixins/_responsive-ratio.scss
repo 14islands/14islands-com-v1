@@ -1,0 +1,7 @@
+
+// Set on wrapper div around responsive image to prevent reflows after image loads
+// Note: Parent of wrapper needs to have same width as image or ratio will be wrong (so u might need 2 extra divs around the image)
+@mixin responsive-ratio($width, $height) {
+	height: 0;
+	padding-bottom: $height / $width * 100%;
+}

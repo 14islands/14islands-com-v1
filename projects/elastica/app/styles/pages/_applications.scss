@@ -1,0 +1,245 @@
+$hover-transition: .3s $easeOutQuad;
+
+section.apps-hero:first-child {
+	@media (min-width: $screen-md-min) {
+		padding-top: 7em;
+	}
+	@media (min-width: $screen-lg-min) {
+		padding-top: 11%;
+	}
+}
+
+.apps-hero__text {
+	p {
+		max-width: 55em;
+	}
+}
+
+.apps-hero__image {
+	padding-top: 5%;
+	padding-bottom: 5%;
+	img {
+		max-width: 100%;
+	}
+
+	// HIDE JUMP LINKS ON MOBILE
+	display: none;
+	@media (min-width: $screen-md-min) {
+		display: block;
+	}
+}
+
+.apps-hero__list {
+	padding: 0;
+	display: inline-block;
+}
+
+@keyframes bounce {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(5px); }
+  100% { transform: translateY(0); }
+}
+
+@mixin apps-hero__item($image_url, $bullet-color) {
+	display: block;
+	min-width: 100px;
+	position: relative;
+	padding: 25px 0 25px 50px;
+	text-align: left;
+
+	background-image: $image_url;
+	background-repeat: no-repeat;
+	background-position: center left;
+	background-size: 35px 35px;
+
+	div {
+		display: none;
+	}
+
+	span {
+		@extend %font-proxima--semibold;
+		color: white;
+	}
+
+	&:hover {
+		text-decoration: none;
+	}
+
+	@media (min-width: $screen-md-min) {
+		$item-padding: 10px;
+		$icon-box-width: 179px;
+		$item-total-width: 179px + (2*$item-padding);
+		$bullet-width: 28px;
+
+		display: inline;
+		float: left;
+
+		transition: all $hover-transition;
+
+		&:hover {
+			background: $bullet-color;
+			border: 1px solid $bullet-color;
+		}
+
+		background-image: none;
+		text-align: center;
+		padding: 0 $item-padding;
+		margin: 12.5px;
+		border: 1px solid #adbfc3;
+		border-radius: 3px;
+		height: 202px;
+
+		div {
+			display: block;
+			width: $icon-box-width;
+			height: 150px;
+			background-image: $image_url;
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-size: 60px auto;
+			transition: background-size 200ms ease-in-out;
+
+			transition: height $hover-transition;
+		}
+
+		span {
+			display: block;
+			padding: 10px 0;
+			border-top: 1px solid white;
+			font-size: .9em;
+			line-height: 30px;
+
+			transition: padding $hover-transition;
+		}
+
+		&:hover div {
+			height: 125px;
+		}
+		&:hover span {
+			padding-top: 20px;
+		}
+
+		&:after {
+			display: block;
+			height: $bullet-width;
+			width: $bullet-width;
+			margin: 0 auto;
+			position: absolute;
+			left: ($item-total-width - $bullet-width) / 2;
+			bottom: -50px;
+			border-radius: 50px;
+
+			content: " ";
+			background-color: $bullet-color;
+			background-image: $pointer-down-white;
+			background-repeat: no-repeat;
+			background-position: center center;
+			padding-top: 20px;
+
+			transition: bottom $hover-transition;
+			pointer-events: none;
+		}
+
+		&:hover:after {
+			bottom: -55px;
+			animation: bounce 1s infinite;
+		}
+	}
+}
+.apps-hero__forensics-item {
+	@include apps-hero__item($eye, #1ca8dd);
+}
+.apps-hero__threats-item {
+	@include apps-hero__item($thunder, #f6772c);
+}
+.apps-hero__detect-item {
+	@include apps-hero__item($magnifier, #92c13a);
+}
+.apps-hero__controls-item {
+	@include apps-hero__item($protect, #ffbb42);
+}
+
+section.apps-forensics {
+	.section--alternate__text {
+		padding-top: 0;
+	}
+	@media (min-width: $screen-md-min) {
+		padding-top: 10%;
+		padding-bottom: 10%;
+	}
+
+}
+
+section.apps-threats {
+	@media (min-width: $screen-md-min) {
+		padding-top: 7%;
+		padding-bottom: 6%;
+		.section--alternate__text {
+			padding-top: 6%;
+		}
+	}
+}
+
+section.apps-detect {
+	@media (min-width: $screen-md-min) {
+		padding-top: 10%;
+		padding-bottom: 10%;
+		.section--alternate__text {
+			padding-top: 6%;
+			h2 {
+				max-width: 400px;
+			}
+			p {
+				max-width: 420px;
+			}
+		}
+	}
+
+	.component-detect-hero {
+		max-width: 771px;
+		margin: auto;
+		padding-bottom: 445/701 * 100%;
+	}
+
+	.component-detect-hero__back {
+		background-image: url(/images/applications/apps-detect-animation-revealed.png);
+	}
+	.component-detect-hero__cover {
+		border-right: 2px solid #cfe1e5;
+	}
+	.component-detect-hero__cover,
+	.component-detect-hero__back,
+	.component-detect-hero__cover__rel,
+	.component-detect-hero__cover__rel__content {
+		background-color: #fff;
+	}
+	.component-detect-hero__cover__rel__content {
+		background-image: url(/images/applications/apps-detect-animation-hidden.png);
+	}
+	.component-detect-hero__slider {
+		border: 3px solid #91a8ae;
+		&:before {
+			border-right: 4px solid #91a8ae;
+		}
+		&:after {
+			border-left: 4px solid #91a8ae;
+		}
+		&:active {
+			border: 3px solid darken(#91a8ae, 10%);
+		}
+	}
+}
+
+section.apps-controls {
+	@media (min-width: $screen-md-min) {
+		padding-top: 12%;
+		padding-bottom: 10%;
+	}
+}
+
+section.apps-coming-soon {
+	@media (min-width: $screen-md-min) {
+		padding-top: 6%;
+		padding-bottom: 8%;
+	}
+}

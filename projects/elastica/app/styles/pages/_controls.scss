@@ -1,0 +1,42 @@
+
+
+section.controls-hero:first-child {
+	padding-top: 5em;
+	@media (min-width: $screen-md-min) {
+		padding-top: 7em;
+		padding-bottom: 5% !important;
+		.section--alternate__text {
+			padding-top: 7%;
+		}
+	}
+	@media (min-width: $screen-lg-min) {
+		padding-top: 11%;
+	}
+}
+
+section.controls-unified {
+	@media (min-width: $screen-md-min) {
+		padding-top: 11%;
+		padding-bottom: 11%;
+		.section--alternate__text {
+
+		}
+	}
+}
+
+section.controls-data-loss {
+	padding-top: 4.5%;
+	padding-bottom: 0;
+}
+
+section.controls-ip {
+	padding-top: 15%;
+	padding-bottom: 10%;
+}
+
+
+section.controls-fast {
+	padding-top: 15%;
+	padding-bottom: 10%;
+	background-image: url(/images/dark-pattern-bg.png);
+}

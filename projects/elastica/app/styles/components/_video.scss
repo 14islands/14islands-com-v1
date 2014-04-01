@@ -1,0 +1,6 @@
+.js-component-video video {
+	visibility: hidden;
+}
+.js-component-video.loaded video {
+	visibility: visible;
+}

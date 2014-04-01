@@ -1,0 +1,114 @@
+// _customers.scss
+
+/* CUSTOMERS */
+
+section.customers-hero:first-child {
+	padding-top: 9em;
+	@media (min-width: $screen-md-min) {
+		padding-top: 10%;
+		padding-bottom: 6%;
+	}
+}
+
+/* CUSTOMER DETAIL */
+
+#customer-detail-page .header-container.container {
+	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(255, 0, 0, 0));
+}
+
+section.customer-detail-header {
+	height: 0%;
+	min-height: 300px;
+	max-height: 760px;
+	padding-top: 0;
+	padding-bottom: 50%;
+	position: relative;
+	overflow: hidden;
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-size: cover;
+	&.customer-detail-apple {
+		height: 760px;
+		background-image: url("../images/customers/customers-apple-detail@1x.jpg");
+	}
+	.customer-detail-title {
+		position: absolute !important;
+		top: auto;
+		left: auto;
+		right: auto;
+		bottom: 50px;
+		width: auto !important;
+		background: rgba(0, 0, 0, 0.15);
+		text-align: left;
+		-webkit-box-shadow: 0 0px 100px 71px rgba(0, 0, 0, 0.15);
+		-moz-box-shadow: 0 0px 100px 71px rgba(0, 0, 0, 0.15);
+		-ms-box-shadow: 0 0px 100px 71px rgba(0, 0, 0, 0.15);
+		-o-box-shadow: 0 0px 100px 71px rgba(0, 0, 0, 0.15);
+		box-shadow: 0 0px 100px 71px rgba(0, 0, 0, 0.15);
+		h1 {
+			display: block;
+			margin-top: 0;
+			padding: 0;
+			border: none;
+			font-size: 2.77em;
+			text-align: left;
+		}
+		.customer-detail-meta {}
+	}
+}
+
+#customer-detail-page .next-detail {
+	position: relative;
+	overflow: hidden;
+	background-size: cover;
+	background-position: center bottom;
+	height: 0%;
+	min-height: 300px;
+	max-height: 530px;
+	padding-top: 0;
+	padding-bottom: 37.5%;
+	&.next-detail-gm {
+		height: 530px;
+		background-image: url(/images/customers/customers-gm-next@1x.jpg)
+	}
+	.entry-title {
+		position: absolute !important;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		top: 0;
+		background: rgba(0, 0, 0, 0.56);
+		height: 100%;
+		color: #ffffff;
+		text-align: center;
+		transition: background 250ms ease-out;
+		&:hover {
+			background: rgba(0, 0, 0, 0.80);
+			color: #ffffff;
+			text-decoration: none !important;
+		}
+		.entry-title-vcenter {
+			margin-top: 180px;
+			display: inline-block;
+			vertical-align: middle;
+			white-space: normal;
+		}
+		.entry-readnext {
+			display: block;
+			text-transform: uppercase;
+			font-size: 14px;
+			font-family: 'ProximaNova-Bold';
+		}
+		h1 {
+			border-top: 1px solid #7b7978;
+			border-bottom: none;
+			margin-top: .4em;
+			padding: .44em 1em .36em;
+			display: block;
+		}
+	}
+}
+
+
+
+

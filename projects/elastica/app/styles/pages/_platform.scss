@@ -1,0 +1,142 @@
+
+section.platform-hero:first-child {
+	padding-top: 5em;
+	position: relative;
+
+	@media (min-width: $screen-md-min) {
+		padding-top: 7em;
+		padding-bottom: 3em;
+
+		div[class^="col"].platform-hero__text {
+			width: 55%;
+			h1 {
+				margin-top: 30px;
+			}
+		}
+	}
+
+	@media (min-width: $screen-lg-min) {
+		padding-top: 9%;
+		padding-bottom: 5%;
+		div[class^="col"].platform-hero__text {
+			width: 40%;
+		}
+	}
+
+	div[class^="col"].platform-hero__image {
+		text-align: right;
+		position: static;
+		padding: 0;
+		width: 100%;
+		img {
+			max-width: 100%;
+			height: auto;
+			@media (min-width: $screen-lg-min) {
+				position: absolute;
+				right: 0;
+				width: 63%;
+				top: 40%;
+				margin-top: -8%;
+			}
+		}
+
+		// tablet sized - halv outside right margin
+		@media (min-width: $screen-md-min) and (max-width: $screen-lg-min - 1px) {
+			.platform-hero__image__wrapper {
+				position: absolute;
+				right: 0;
+				width: 50%;
+				top: 30%;
+				margin-top: -8%;
+				overflow: hidden;
+				img {
+					max-width: 160%;
+				}
+			}
+		}
+	}
+}
+
+section.platform-defence {
+	@media (min-width: $screen-md-min) {
+		padding-top: 9.5%;
+		padding-bottom: 9.5%;
+	}
+	@media (min-width: $screen-lg-min) {
+		.section--alternate__text {
+			padding-top: 4%;
+		}
+	}
+}
+
+section.platform-using {
+	padding-top: 4%;
+	padding-bottom: 4%;
+}
+
+section.platform-security {
+	@media (min-width: $screen-md-min) {
+		padding-top: 6%;
+		padding-bottom: 6%;
+	}
+	@media (min-width: $screen-lg-min) {
+		.section--alternate__text {
+			padding-top: 2%;
+		}
+	}
+}
+
+section.platform-controls {
+	@media (min-width: $screen-md-min) {
+		padding-top: 14%;
+		padding-bottom: 14%;
+	}
+	@media (min-width: $screen-lg-min) {
+		.section--alternate__text {
+			padding-top: 2%;
+		}
+	}
+}
+
+section.platform-apps {
+	@media (min-width: $screen-md-min) {
+		padding-top: 12%;
+		padding-bottom: 14%;
+	}
+	@media (min-width: $screen-lg-min) {
+		.section--alternate__text {
+			padding-top: 0px;
+		}
+	}
+}
+
+section.platform-collaboration {
+
+	@media (min-width: $screen-md-min) {
+		padding-top: 6%;
+		padding-bottom: 3%;
+		.section--alternate__text {
+			padding-top: 5%;
+			padding-bottom: 5%;
+		}
+	}
+	.video-ratio {
+		max-width: 100%;
+		display: inline-block;
+	}
+	.video-container {
+		height: 0;
+		padding-bottom: 540 / 552 * 100%;
+		overflow: hidden;
+	}
+}
+
+section.platform-global {
+	// let centered image strech to edge of browser
+	div[class^="col"] {
+		&.section--centered__image {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+}

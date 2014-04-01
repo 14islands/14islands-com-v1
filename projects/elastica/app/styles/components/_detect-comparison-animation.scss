@@ -1,0 +1,159 @@
+// All sizes and distances specified in percentage of max size to be responsive
+
+$aspect-ratio: 728 / 248;
+$line-width: 1px;
+
+$spider-graph-transition-duration: 1.2s;
+$spider-graph-transition-easing: $easeOutQuart;
+$vs-transition-duration: .5s;
+$vs-transition-easing: $easeOutQuint;
+
+$line-bg-color: #4e525b;
+
+
+.detect-comparison-animation {
+	position: relative;
+	display: inline-block;
+	max-width: 100%;
+}
+
+.detect-comparison-animation__core {
+	@include spider-graph-core(22%);
+}
+
+.detect-comparison-animation__core__cap {
+	@include spider-graph-core__cap(4.4%);
+}
+
+.detect-comparison-animation__core__line .spider-graph__fill:after {
+	top: 0px !important;
+	width: 3px !important;
+	height: 3px !important;
+	margin-top: -1px !important;
+	margin-right: -1px !important;
+	@media (min-width: $screen-sm-min) {
+		width: 5px !important;
+		height: 5px !important;
+		margin-top: -2px !important;
+		margin-right: -2px !important;
+	}
+}
+
+
+.detect-comparison-animation__core:nth-child(1) {
+	// position over graph
+	top: 8.95%;
+	left: 3.2%;
+
+	.detect-comparison-animation__core__line:nth-child(1) {
+		@include spider-graph__core__line(100%, #9aca40, 270deg, 100ms);
+	}
+	.detect-comparison-animation__core__line:nth-child(2) {
+		@include spider-graph__core__line(65%, #ffbb42, 167.6deg, 100ms);
+	}
+	.detect-comparison-animation__core__line:nth-child(3) {
+		@include spider-graph__core__line(45%, #ff3300, 63.8deg, 100ms);
+	}
+	.detect-comparison-animation__core__line:nth-child(4) {
+		@include spider-graph__core__line(70%, #9aca40, 321.4deg, 100ms);
+	}
+	.detect-comparison-animation__core__line:nth-child(5) {
+		@include spider-graph__core__line(35%, #ff3300, 218.2deg, 100ms);
+	}
+	.detect-comparison-animation__core__line:nth-child(6) {
+		@include spider-graph__core__line(80%, #9aca40, 115.6deg, 100ms);
+	}
+	.detect-comparison-animation__core__line:nth-child(7) {
+		@include spider-graph__core__line(55%, #ffbb42, 12.7deg, 100ms);
+	}
+}
+
+.detect-comparison-animation__core:nth-child(2) {
+	// position over graph
+	top: 8.95%;
+	left: 38.9%;
+
+	.detect-comparison-animation__core__line:nth-child(1) {
+		@include spider-graph__core__line(45%, #ffbb42, 270deg, 600ms);
+	}
+	.detect-comparison-animation__core__line:nth-child(2) {
+		@include spider-graph__core__line(60%, #ffbb42, 167.6deg, 600ms);
+	}
+	.detect-comparison-animation__core__line:nth-child(3) {
+		@include spider-graph__core__line(100%, #9aca40, 63.8deg, 600ms);
+	}
+	.detect-comparison-animation__core__line:nth-child(4) {
+		@include spider-graph__core__line(70%, #9aca40, 321.4deg, 600ms);
+	}
+	.detect-comparison-animation__core__line:nth-child(5) {
+		@include spider-graph__core__line(75%, #9aca40, 218.2deg, 600ms);
+	}
+	.detect-comparison-animation__core__line:nth-child(6) {
+		@include spider-graph__core__line(80%, #9aca40, 115.6deg, 600ms);
+	}
+	.detect-comparison-animation__core__line:nth-child(7) {
+		@include spider-graph__core__line(55%, #ffbb42, 12.7deg, 600ms);
+	}
+}
+
+.detect-comparison-animation__core:nth-child(3) {
+	// position over graph
+	top: 8.95%;
+	left: 74.6%;
+
+	.detect-comparison-animation__core__line:nth-child(1) {
+		@include spider-graph__core__line(100%, #9aca40, 270deg, 1100ms);
+	}
+	.detect-comparison-animation__core__line:nth-child(2) {
+		@include spider-graph__core__line(60%, #ffbb42, 167.6deg, 1100ms);
+	}
+	.detect-comparison-animation__core__line:nth-child(3) {
+		@include spider-graph__core__line(45%, #ff3300, 63.8deg, 1100ms);
+	}
+	.detect-comparison-animation__core__line:nth-child(4) {
+		@include spider-graph__core__line(70%, #9aca40, 321.4deg, 1100ms);
+	}
+	.detect-comparison-animation__core__line:nth-child(5) {
+		@include spider-graph__core__line(85%, #9aca40, 218.2deg, 1100ms);
+	}
+	.detect-comparison-animation__core__line:nth-child(6) {
+		@include spider-graph__core__line(40%, #ff3300, 115.6deg, 1100ms);
+	}
+	.detect-comparison-animation__core__line:nth-child(7) {
+		@include spider-graph__core__line(50%, #ffbb42, 12.7deg, 1100ms);
+	}
+}
+
+
+
+.detect-comparison-animation__vs {
+	$size: 4.1%;
+	position: absolute;
+	width: $size;
+	height: $size * $aspect-ratio;
+	background: url(/images/detect/detect-comparison-animation-vs.png) no-repeat;
+	background-size: contain;
+	border-radius: 100%;
+	top: 40%;
+
+	transition: transform $vs-transition-easing 0;
+	transform: scale(0);
+
+	.run & {
+		transition-duration: $vs-transition-duration;
+		transform: scale(1);
+
+		&:nth-child(4) {
+			left:	30%;
+			transition-delay: 400ms;
+		}
+		&:nth-child(5) {
+			left:	66%;
+			transition-delay: 900ms;
+		}
+	}
+
+	@extend %font-proxima--bold;
+
+
+}

@@ -1,0 +1,71 @@
+$icon-font-path: "/bower_components/sass-bootstrap/fonts/";
+
+$max-grid-width: 1477px;
+
+// BOOTSTRAP make large breakpoints fluid width
+$container-sm: 100%;
+$container-md: 100%;
+$container-lg: 100%;
+$container-lg: 100%;
+
+// framework
+@import 'sass-bootstrap/lib/bootstrap';
+@import 'mathsass/dist/math';
+@import 'base/_easing';
+@import 'base/_webfonts';
+@import 'base/_icons';
+@import 'base/_data-uris';
+
+// mixins
+@import 'compass/css3/images'; // For gradient backgrounds
+@import 'mixins/_responsive-ratio';
+@import 'mixins/_spider-graph';
+
+// global layout
+@import 'base/_layout';
+@import 'base/_typography';
+@import 'base/_buttons';
+
+// pages
+@import 'pages/_home';
+@import 'pages/_platform';
+@import 'pages/_applications';
+@import 'pages/_threats';
+@import 'pages/_forensics';
+@import 'pages/_controls';
+@import 'pages/_company';
+@import 'pages/_detect';
+@import 'pages/_customers';
+@import 'pages/_contact';
+@import 'pages/_terms';
+@import 'pages/_resources';
+@import 'pages/_store';
+@import 'pages/_rsa';
+
+// components
+@import 'components/_header';
+@import 'components/_signup';
+@import 'components/_detect-hero';
+@import 'components/_big-carousel';
+@import 'components/_video';
+
+@import 'components/_home-testimonials';
+
+@import 'components/_fadein-from-top-animation';
+@import 'components/_platform-defence-animation';
+@import 'components/_platform-security-animation';
+@import 'components/_platform-controls-animation';
+@import 'components/_platform-apps-animation';
+@import 'components/_applications-threats-animation';
+@import 'components/_applications-forensics-animation';
+@import 'components/_applications-controls-animation';
+@import 'components/_forensics-legal-animation';
+@import 'components/_detect-risks-animation';
+@import 'components/_detect-comparison-animation';
+@import 'components/_controls-hero-animation';
+@import 'components/_controls-data-loss-animation';
+@import 'components/_controls-ip-animation';
+@import 'components/_controls-fast-animation';
+@import 'components/_threats-malware-animation';
+@import 'components/_threats-ai-animation';
+@import 'components/_global-presence-animation';
