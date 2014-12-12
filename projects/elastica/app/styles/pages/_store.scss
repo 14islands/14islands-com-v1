@@ -1,0 +1,247 @@
+// _store.scss
+
+// mixins
+@mixin clickable {
+  cursor: pointer;
+}
+
+// store
+section.store-hero:first-child {
+	padding: 140px 50px 10px 50px;
+	position: relative;
+
+	.big-carousel .owl-theme .owl-controls {
+		margin-top: 15px;
+	}
+
+}
+
+.store-controls {
+    .form-search {
+        float: right;
+        margin: 0 30px 30px 10px;
+        padding: 0;
+        border: 0;
+        position: relative;
+        .form-group {
+            position: relative;
+            margin: 0;
+        }
+        .form-control {
+            padding-right: 40px;
+            height: 40px;
+            background-color: #ffffff;
+        }
+        .btn-search {
+            position: absolute; top: 0; right: 0;
+            border-color: transparent;
+            background-color: transparent;
+            .glyphicon {
+                position: relative;
+                top: 7px;
+                right: 0;
+                font-size: 16px;
+                width: 16px;
+                height: 16px;
+            }
+        }
+    }
+    .store-tools {
+        float: right;
+        .btn {
+            padding: 10px 12px 8px 12px;
+            line-height: 20px;
+            border: 1px solid #cccccc;
+            border-radius: 3px;
+            background-color: #ffffff;
+            text-decoration: none;
+            white-space: normal;
+            span.btn-desc {
+                padding-right: 10px;
+                opacity: 0.5;
+            }
+        }
+        .btn-group {
+            margin-left: 15px;
+            .btn {
+                margin-left: -1px;
+            }
+        }
+    }
+}
+
+.container section.store-section {
+	padding: 2% 10%;
+	border-bottom: 2px solid #edf0f0;
+	.row {
+	    margin-right: -5px;
+	    margin-left: -5px;
+	    .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
+	        padding-right: 5px;
+	        padding-left: 5px;
+	    }
+	}
+    @media (min-width: $screen-sm-min) {
+        padding: 2% 10%;
+    }
+    @media (min-width: $screen-md-min) {
+        padding: 2% 20%;
+    }
+}
+
+// marketplace (pulled from app)
+.marketplace-category {
+    padding: 0;
+    .marketplace-category-header {
+    	position: relative;
+    	margin-bottom: 10px;
+        h2 {
+        	margin-top: 0;
+        	@extend %font-proxima--regular;
+            color: #2f323a;
+            font-size: 20px;
+        }
+        a {
+            position: absolute; top: 0; right: 0;
+            margin-top: 5px;
+            font-size: 14px;
+        }
+    }
+    .tile {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        border: 1px solid #e8e9e9;
+        height: 200px;
+        background-color: white;
+        overflow: hidden;
+        .tile-image {
+            padding: 10px 10px 0 10px;
+            img {
+            	display: block;
+            	width: 100%;
+            }
+            .app-added {
+            	@extend %font-proxima--bold;
+                position: absolute; top: 10px; right: 10px;
+                padding: 0 7px;
+                background-color: #9aca40;
+                color: white;
+                font-size: 11px;
+                line-height: 21px;
+                text-transform: uppercase;
+            }
+        }
+        .tile-title {
+            display: block;
+            padding: 13px 15px;
+            @include clickable;
+            h3 {
+                @extend %font-proxima--semibold;
+                margin: 0;
+                padding: 0;
+                color: #2f323a;
+                font-size: 16px;
+                span {
+                    float: right;
+                    opacity: 0.54;
+                    // @include opacity(0.54);
+                }
+            }
+        }
+        .tile-desc {
+            display: block;
+            padding: 15px;
+            background-color: #edf0f0;
+            @include clickable;
+            p {
+                height: 100%;
+                overflow: hidden;
+                font-size: 14px;
+            }
+        }
+        .tile-buttons {
+            display: none;
+            position: absolute; bottom: 0; left: 0; right: 0;
+            @include clearfix;
+            .btn-group {
+                display: block;
+                margin: 0;
+                width: 100%;
+                .btn-success,
+                .btn-success:hover {}
+                .btn-success:first-child {}
+                .btn-success:last-child {}
+            }
+            .btn-success,
+            .btn-success:hover {
+            	@extend %font-proxima--regular;
+                border: 0;
+                font-size: 14px;
+                text-transform: none;
+            }
+        }
+    }
+    .tile:hover {
+        .tile-image {
+            display: none;
+        }
+        .tile-buttons {
+            display: none;
+        }
+    }
+}
+
+
+/********* STORE MODAL ********/
+.store-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #121316;
+    transform: translateY(-100%);
+    opacity: 0;
+    z-index: -1;
+
+    transition: opacity 250ms $easeOutQuad;
+
+    overflow-y: scroll; /* has to be scroll, not auto */
+    -webkit-overflow-scrolling: touch;
+
+    .store-modal--open & {
+        transform: translateY(0%);
+        opacity: 0.9;
+        z-index: 300;
+    }
+    .store-modal-content {
+        padding-top: 20%;
+        color: #fff;
+        text-align: center;
+        h1 {
+            margin: 0;
+            text-align: center;
+        }
+        p {}
+        .btn-medium {
+            background-color: transparent;
+            font-size: 24px;
+            line-height: 1.333em;
+            text-transform: none;
+            border-radius: 30px;
+            &:hover {
+                background: #1bbdfa;
+            }
+        }
+    }
+    .store-modal--close {
+        position: absolute; top: 30px; right: 30px;
+        display: block;
+        width: 50px;
+        height: 50px;
+        background: url(../images/store/store-icon-close.png) 50% 50% no-repeat;
+        text-decoration: none;
+    }
+}

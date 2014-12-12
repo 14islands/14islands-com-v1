@@ -1,0 +1,62 @@
+// All sizes and distances specified in percentage of max size to be responsive
+
+$bg-image-width: 514px;
+$bg-image-height: 420px;
+
+$aspect-ratio: $bg-image-width / $bg-image-height;
+$line-width: 3px;
+
+$spider-graph-transition-duration: 1.5s;
+$spider-graph-transition-easing: $easeOutQuart;
+
+.detect-risks {
+}
+
+.detect-risks-animation {
+	position: relative;
+	display: inline-block;
+	max-width: 100%;
+}
+
+// prevent reflows when image loads
+.detect-risks-animation__ratio  {
+	@include responsive-ratio($bg-image-width, $bg-image-height);
+}
+
+.detect-risks-animation__ratio__core {
+	@include spider-graph-core(73%);
+	// position over graph
+	top: 6.5%;
+	left: 14%;
+}
+
+.detect-risks-animation__ratio__core__cap {
+	@include spider-graph-core__cap(6%);
+}
+
+.detect-risks-animation__ratio__core__line:nth-child(1) {
+	@include spider-graph__core__line(100%, #9aca40, 270deg, 1 * 200ms);
+}
+.detect-risks-animation__ratio__core__line:nth-child(2) {
+	@include spider-graph__core__line(70%, #ffbb42, 167.6deg, 2 * 200ms );
+}
+.detect-risks-animation__ratio__core__line:nth-child(3) {
+	@include spider-graph__core__line(50%, #ff3300, 63.8deg, 3 * 200ms);
+}
+.detect-risks-animation__ratio__core__line:nth-child(4) {
+	@include spider-graph__core__line(75%, #9aca40, 321.4deg, 4 * 200ms);
+}
+.detect-risks-animation__ratio__core__line:nth-child(5) {
+	@include spider-graph__core__line(40%, #ff3300, 218.3deg, 5 * 200ms );
+}
+.detect-risks-animation__ratio__core__line:nth-child(6) {
+	@include spider-graph__core__line(85%, #9aca40, 115.6deg, 6 * 200ms);
+}
+.detect-risks-animation__ratio__core__line:nth-child(7) {
+	@include spider-graph__core__line(60%, #ffbb42, 12.7deg, 7 * 200ms);
+}
+
+
+
+
+

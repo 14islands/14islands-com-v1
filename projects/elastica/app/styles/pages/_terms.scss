@@ -1,0 +1,32 @@
+// _terms.scss
+
+/* TERMS */
+
+section.terms-hero:first-child {
+	padding-top: 9em;
+	@media (min-width: $screen-md-min) {
+		padding-top: 160px;
+		padding-bottom: 60px;
+	}
+}
+
+section.terms-content {
+	h3,
+	h4 {
+		@extend %font-proxima--semibold;
+		color: #262930;
+	}
+	h3 {
+		font-size: 24px;
+	}
+	h4 {
+		font-size: 20px;
+	}
+	ul {
+		li {
+			p {
+				font-size: 18px;
+			}
+		}
+	}
+}

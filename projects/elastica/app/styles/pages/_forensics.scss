@@ -1,0 +1,60 @@
+
+section:first-child.forensics-hero {
+	padding-top: 5em;
+	@media (min-width: $screen-md-min) {
+		padding-top: 14.5%;
+		padding-bottom: 11%;
+	}
+	.section--alternate__image {
+		padding-top: 3%;
+	}
+}
+
+section.forensics-dots {
+
+	/*
+	// old image with background was flush left
+	@media (min-width: $screen-md-min) {
+		padding-top: 0;
+		padding-bottom: 0;
+		padding-left: 0;
+		.section--alternate__image {
+			padding-left: 0;
+			text-align: left;
+		}
+		.section--alternate__text {
+			padding-top: 8%;
+		}
+	}
+	@media (min-width: $screen-lg-min) {
+		.section--alternate__text {
+			padding-top: 13%;
+		}
+	}
+	*/
+
+	@media (min-width: $screen-md-min) {
+		padding-top: 9%;
+		padding-bottom: 10%;
+		.section--alternate__text {
+			padding-top: 4%;
+		}
+	}
+}
+
+section.forensics-legal {
+	@media (min-width: $screen-md-min) {
+		padding-top: 8%;
+		padding-bottom: 10%;
+		.section--alternate__text {
+			padding-top: 4%;
+		}
+	}
+}
+
+section.forensics-customize {
+	@media (min-width: $screen-md-min) {
+		padding-top: 2.5%;
+		padding-bottom: 8.5%;
+	}
+}

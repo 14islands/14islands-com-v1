@@ -1,0 +1,101 @@
+$bg-image-width: 439px;
+$bg-image-height: 294px;
+$aspect-ratio: $bg-image-width / $bg-image-height;
+
+$transition: $easeInOutQuad 1200ms;
+
+
+.applications-controls-animation {
+	display: inline-block;
+	position: relative;
+	max-width: 100%;
+}
+
+// prevent reflows when image loads
+.applications-controls-animation__ratio {
+	@include responsive-ratio($bg-image-width, $bg-image-height);
+}
+
+.applications-controls-animation__ratio__slider {
+	position: absolute;
+	bottom: 0%;
+	height: 12% * $aspect-ratio;
+	width: 12%;
+	background: #fff;
+	border-radius: 50%;
+	box-shadow: 0 1px 1px 0px rgba(0, 0, 0, 0.2);
+
+	> span {
+		content: "";
+		position: absolute;
+		background: #ddd;
+		border-radius: 50%;
+		left: 24%;
+		right: 24%;
+		top: 24%;
+		bottom: 24%;
+		transition: background $transition;
+	}
+
+	transition: transform $transition;
+}
+.applications-controls-animation__ratio__slider:nth-child(1) {
+	left: 12%;
+	.applications-controls-animation.run & {
+		transform: translateY(-200%) translateZ(0);
+		.csstransforms3d & {
+			 transform: translateY(-200%) translateZ(0);
+		}
+		>span {
+			background: #9aca40;
+		}
+	}
+}
+.applications-controls-animation__ratio__slider:nth-child(2) {
+	left: 28%;
+	.applications-controls-animation.run & {
+		transform: translateY(-80%);
+		.csstransforms3d & {
+			 transform: translateY(-80%) translateZ(0);
+		}
+		>span {
+			background: #91a8ae;
+		}
+	}
+}
+.applications-controls-animation__ratio__slider:nth-child(3)  {
+	left: 44%;
+	.applications-controls-animation.run & {
+		transform: translateY(-370%);
+		.csstransforms3d & {
+			 transform: translateY(-370%) translateZ(0);
+		}
+		>span {
+			background: #f6772c;
+		}
+	}
+}
+.applications-controls-animation__ratio__slider:nth-child(4)  {
+	left: 60%;
+	.applications-controls-animation.run & {
+		transform: translateY(-250%);
+		.csstransforms3d & {
+			 transform: translateY(-250%) translateZ(0);
+		}
+		>span {
+			background: #ffbb42;
+		}
+	}
+}
+.applications-controls-animation__ratio__slider:nth-child(5)  {
+	left: 76%;
+	.applications-controls-animation.run & {
+		transform: translateY(-425%);
+		.csstransforms3d & {
+			 transform: translateY(-425%) translateZ(0);
+		}
+		>span {
+			background: #ff3300;
+		}
+	}
+}

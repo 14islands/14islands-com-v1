@@ -1,0 +1,127 @@
+$width: 500px;
+$height: 325px;
+
+$transition-duration: .6s;
+$transition-easing: $easeOutQuad;
+$transition-delay: 200ms;
+
+
+.controls-ip-animation {
+	display: inline-block;
+	position: relative;
+	max-width: $width;
+	width: 100%;
+	backface-visibility: hidden;
+}
+
+// prevent reflows when image loads
+.controls-ip-animation__ratio {
+	@include responsive-ratio($width, $height);
+}
+
+
+.controls-ip-animation__ratio__label {
+	position: absolute;
+	display: inline-block;
+	text-transform: uppercase;
+	color: #fff;
+	padding: .45em .3em;
+	line-height: 1em;
+	white-space: nowrap;
+	@extend %font-proxima--semibold;
+	box-shadow: 0.3em 0.25em 0em -0.1em rgba(0, 0, 0, 0.1);
+	
+	// can't specify font size in % so here we go... :(
+	font-size: .9em;
+	@media (min-width: 350px) {
+		font-size: 1.00em;
+	}
+	@media (min-width: 400px) {
+		font-size: 1.10em;
+	}
+	@media (min-width: 450px) {
+		font-size: 1.4em;
+	}
+	@media (min-width: 500px) {
+		font-size: 1.5em;
+	}
+	@media (min-width: 550px) {
+		font-size: 1.64em;
+	}
+	@media (min-width: $screen-md-min) {
+		font-size: 1.44em;
+	}
+
+	transform: translateY(-50%);
+	opacity: 0;
+	.run & {
+		opacity: 1;
+		transform: translateY(0%);
+		transition: transform $transition-duration $transition-easing, opacity 0s linear;
+	}
+}
+
+// Financial info
+.controls-ip-animation__ratio__label:nth-child(1) {
+	background: #91a8ae;
+	top: 10%;
+	left: 22%;
+	.run & { transition-delay: 0 * $transition-delay; }
+}
+// Designs
+.controls-ip-animation__ratio__label:nth-child(2) {
+	background: #9aca40;
+	top: 22%;
+	left: 29%;
+	z-index: 3;
+	.run & { transition-delay: 1 * $transition-delay; }
+}
+// Software
+.controls-ip-animation__ratio__label:nth-child(3) {
+	background: #1ca8dd;
+	top: 24%;
+	left: 53%;
+	z-index: 2;
+	.run & { transition-delay: 2 * $transition-delay; }
+}
+// Business Plans
+.controls-ip-animation__ratio__label:nth-child(4) {
+	background: #e5e9ea;
+	top: 36%;
+	left: 4%;
+	z-index: 5;
+	.run & { transition-delay: 3 * $transition-delay; }
+}
+// Customer info
+.controls-ip-animation__ratio__label:nth-child(5) {
+	background: #f13c6e;
+	top: 35%;
+	left: 48%;
+	z-index: 4;
+	.run & { transition-delay: 4 * $transition-delay; }
+}
+// Competitive info
+.controls-ip-animation__ratio__label:nth-child(6) {
+	background: #ffbb42;
+	top: 49%;
+	left: 10%;
+	z-index: 6;
+	.run & { transition-delay: 5 * $transition-delay; }
+}
+// Stategy Plans
+.controls-ip-animation__ratio__label:nth-child(7) {
+	background: #55575d;
+	top: 61%;
+	left: 39%;
+	.run & { transition-delay: 6 * $transition-delay; }
+}
+// Company Risks
+.controls-ip-animation__ratio__label:nth-child(8) {
+	background: #91a8ae;
+	top: 72%;
+	left: 25%;
+	z-index: 7;
+	.run & { transition-delay: 7 * $transition-delay; }
+}
+
+

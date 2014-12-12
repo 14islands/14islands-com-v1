@@ -1,0 +1,91 @@
+/* Used on the Detect page by 2 components:
+ *  _detect-risk-animation
+ *  _detect-comparison-animation
+ */
+
+$line-bg-color: #e5e9ea !default;
+
+@mixin spider-graph-core($size) {
+	position: absolute;
+	width: $size;
+	height: $size * $aspect-ratio;
+	border-radius: 50%;
+}
+
+
+@mixin spider-graph-core__cap($size) {
+	position: absolute;
+	height: $size;
+	width: $size;
+	margin-top: -$size/2;
+	margin-left: -$size/2;
+	top: 50%;
+	left: 50%;
+	border-radius: 100%;
+	background: #fff;
+}
+
+@mixin spider-graph__core__line($length, $color, $rotation, $delay: 0) {
+	position: absolute;
+	height: 1px;
+	@media (min-width: $screen-sm-min) {
+		height: $line-width;
+	}
+	margin-top: -$line-width/2;
+	top: 50%;
+	left: 50%;
+	width: 0%;
+
+	transform-origin: 0% 50%;
+
+	// unique styles
+	background: $line-bg-color;
+	width: 50%;
+	transform: rotate($rotation);
+	.csstransforms3d & {
+		transform: rotate($rotation) translateZ(0);
+	}
+
+	> .spider-graph__fill {
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 0%;
+		position: absolute;
+		opacity: 0;
+		background: $color;
+
+		transition: width $spider-graph-transition-easing 0, opacity 0;
+
+		.run & {
+			opacity: 1;
+			transition-duration: $spider-graph-transition-duration, 0s;
+			transition-delay: $delay;
+			width: $length;
+		}
+
+		// dot at the end of line
+		&:after {
+			position: absolute;
+			content: "";
+			background: $color;
+			border-radius: 100%;
+			top: 0;
+			right: 0;
+
+			width: 8px;
+			height: 8px;
+			margin-top: -3px;
+			margin-right: -3px;
+
+			@media (min-width: $screen-sm-min) {
+				width: 12px;
+				height: 12px;
+				margin-top: -4px;
+				margin-right: -4px;
+			}
+		}
+
+	}
+
+}

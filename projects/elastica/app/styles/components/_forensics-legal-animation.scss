@@ -1,0 +1,81 @@
+$aspect-ratio: 416 / 459;
+
+.forensics-legal {
+	backface-visibility: hidden;
+}
+
+.forensics-legal-animation {
+	display: inline-block;
+	position: relative;
+	max-width: 100%;
+}
+
+.forensics-legal-animation__mask {
+	position: absolute;
+	right: 12%;
+	width: 8%;
+	height: 8% * $aspect-ratio;
+	overflow: hidden;
+
+	&:nth-child(1) {
+		top: 61%;
+		.forensics-legal-animation__mask__cover {
+			animation-delay: 100ms;
+		}
+	}
+	&:nth-child(2) {
+		top: 74%;
+		.forensics-legal-animation__mask__cover {
+			animation-delay: 600ms;
+		}
+	}
+	&:nth-child(3) {
+		top: 87%;
+		.forensics-legal-animation__mask__cover {
+			animation-delay: 1100ms;
+		}
+	}
+}
+
+@keyframes forensics-legal-animation-mask {
+	0% {
+		top: 14%;
+		left: 10%;
+		-webkit-transform: rotate(-45deg) translateZ(0);
+	}
+	20% {
+		-webkit-transform: rotate(-45deg) translateZ(0);
+	}
+	30% {
+		top: 30%;
+		left: 25%;
+		-webkit-transform: rotate(-90deg) translateZ(0);
+	}
+	50% {
+		-webkit-transform: rotate(-135deg) translateZ(0);
+	}
+	100% {
+		top: -35%;
+		left: 75%;
+		-webkit-transform: rotate(-135deg) translateZ(0);
+	}
+}
+
+.forensics-legal-animation__mask__cover {
+	position: absolute;
+	top: 14%;
+	left: 10%;
+	width: 90%;
+	height: 70%;
+	background: #fff;
+	-webkit-transform: rotate(-45deg);
+
+
+	.run & {
+		// show marks
+		top: -35%;
+		left: 75%;
+		-webkit-transform: rotate(-135deg);
+		animation: forensics-legal-animation-mask .3s 1 linear both;
+	}
+}

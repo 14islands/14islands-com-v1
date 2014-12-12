@@ -1,0 +1,246 @@
+
+/* used in signup component */
+.btn-outline {
+	@extend %font-proxima--regular;
+	background: transparent;
+	color: #ffffff;
+	display: inline-block;
+	border: 2px solid #ffffff;
+	font-weight: normal;
+	letter-spacing: -0.025em;
+	margin: 0 0 0.2em 0;
+	text-align: center;
+
+	border-radius: 20px;
+	font-size: 1em;
+	padding: 0.44em 1em;
+	min-width: 190px;
+	@media (min-width: $screen-sm-min) {
+		min-width: initial;
+		font-size: 1.44em;
+		padding: 0.36em 1em;
+		border-radius: 30px;
+	}
+	@media (min-width: $screen-md-min) {
+		padding: 0.36em 2em;
+	}
+
+	&:hover {
+		text-decoration: none;
+		color: #ffffff;
+		background: transparent;
+		border: 2px solid #ade0f3;
+	}
+}
+
+.btn-outline--inverted {
+	color: #1ca8dd;
+	background: #ffffff;
+	&:hover {
+		color: #1ca8dd;
+		background: #d9f0f9;
+		border: 2px solid #d9f0f9;
+	}
+}
+
+
+.btn-outline.btn-outline--green {
+	@extend %font-proxima--semibold;
+	color: #9aca40;
+	font-size: 16px;
+	border: 1px solid #9aca40;
+	padding: 0 1.2em;
+	min-width: inherit;
+	line-height: 1.8em;
+	&:hover {
+		text-decoration: none;
+		color: #ffffff;
+		background: darken(#9aca40, 5%);
+	}
+}
+
+
+/* Medium sized button - used on home page */
+.btn-medium {
+	display: inline-block;
+
+	color: #fff;
+	background: #1ca8dd;
+	border: 1px solid #1ca8dd;
+
+	padding: 0.47em 1.8em 0.34em ;
+	margin: 0.8em 0.2em;
+
+	@extend %font-proxima--bold;
+	font-size: 14px;
+	line-height: 1.8em;
+	text-transform: uppercase;
+	text-align: center;
+
+	border-radius: 20px;
+	min-width: 190px; // mobile
+
+	@media (min-width: $screen-sm-min) {
+		min-width: initial;
+	}
+
+	&:hover {
+		text-decoration: none;
+		color: #fff;
+		background: #1bbdfa;
+		border: 1px solid #1bbdfa;
+	}
+}
+.btn-medium--outline {
+	color: #fff;
+	border: 1px solid #3f4146;
+
+	&:hover {
+		background: transparent;
+		color: #fff;
+		border: 1px solid #606266;
+	}
+}
+
+/* Medium sized button - used on section--green */
+.section--green .btn-medium {
+	color: #9aca40;
+	background: #ffffff;
+	border: 1px solid #ffffff;
+}
+
+.section--green .btn-medium--outline {
+	color: #ffffff;
+	background: transparent;
+	border: 1px solid #bbdb7f;
+	&:hover {
+		background: #bbdb7f;
+		color: #ffffff;
+		border: 1px solid #bbdb7f;
+	}
+}
+
+/* Medium sized button - used on section--dark */
+.section--dark .btn-medium {
+	color: #fff;
+	background: #1ca8dd;
+	border: 1px solid #1ca8dd;
+	&:hover {
+		text-decoration: none;
+		color: #fff;
+		background: #1bbdfa;
+		border: 1px solid #1bbdfa;
+	}
+}
+
+.section--dark .btn-medium--outline {
+	color: #ffffff;
+	background: transparent;
+	border: 1px solid #3f4146;
+	&:hover {
+		background: transparent;
+		color: #ffffff;
+		border: 1px solid #606266;
+	}
+}
+
+/* Medium sized button - used on section--blue */
+.section--blue .btn-medium {
+	color: #29a9da;
+	background: #ffffff;
+	border: 1px solid #ffffff;
+}
+
+.section--blue .btn-medium--outline {
+	color: #ffffff;
+	background: transparent;
+	border: 1px solid #6fc5e6;
+	&:hover {
+		background: #6fc5e6;
+		color: #ffffff;
+		border: 1px solid #6fc5e6;
+	}
+}
+
+/* Medium sized button - used on section--medium-grey */
+.section--medium-grey .btn-medium {
+	color: #a3afb2;
+	background: #ffffff;
+	border: 1px solid #ffffff;
+}
+
+.section--medium-grey .btn-medium--outline {
+	color: #ffffff;
+	background: transparent;
+	border: 1px solid #c7cfd1;
+	&:hover {
+		background: #c7cfd1;
+		color: #ffffff;
+		border: 1px solid #c7cfd1;
+	}
+}
+
+/* Medium sized button - used on section--pink */
+.section--pink .btn-medium {}
+
+.section--pink .btn-medium--outline {
+	color: #ffffff;
+	background: transparent;
+	border: 1px solid #f0698f;
+	&:hover {
+		background: transparent;
+		color: #ffffff;
+		border: 1px solid #ef95af;
+	}
+}
+
+/* MENU BUTTON - used in floating header */
+.btn-menu {
+	display: inline-block;
+
+	color: rgba(0,0,0,0.7);
+	background: #ffffff;
+	border: 1px solid #ffffff;
+
+	padding: 0.2em 1em 0.05em;
+	margin: 0 0.2em;
+
+	@extend %font-proxima--bold;
+	font-size: 14px;
+	line-height: 1.8em;
+	text-transform: uppercase;
+	text-align: center;
+
+	border-radius: 20px;
+
+	&:hover {
+		text-decoration: none;
+		color: #1ca8dd;
+	}
+}
+.btn-menu--outline {
+	color: #fff;
+	background: transparent;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+
+	&:hover {
+		color: #fff;
+		background: transparent;
+		border: 1px solid rgba(255, 255, 255, 0.33);
+		transition: border .25s $easeOutQuad;
+	}
+}
+
+.btn-menu--outline-on-hover {
+	color: #fff;
+	background: transparent;
+	border: 1px solid transparent;
+	margin: 0 0 0 -0.4em;
+
+	&:hover {
+		color: #fff;
+		background: transparent;
+		border: 1px solid rgba(255, 255, 255, 0.2);
+		transition: border .25s $easeOutQuad;
+	}
+}

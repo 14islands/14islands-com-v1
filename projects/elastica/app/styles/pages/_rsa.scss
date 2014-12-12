@@ -1,0 +1,125 @@
+#rsa-page {
+    $bgcolor: #191b1f;
+    $textcolor: #d3d3d3;
+    $form-submit-btn-bgcolor: #f77922;
+
+    article.container {
+        background: $bgcolor;
+    }
+
+    // See: http://mobile.smashingmagazine.com/2013/07/22/simple-responsive-images-with-css-backgrounds/
+    .ducati-image {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        //font-size: 0;
+        line-height: 0;
+        vertical-align: middle;
+        background-size: 100%;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-image: url(/images/img-ducati-rsa-contest.jpg);
+
+        .image-inner {
+            display: block;
+            height: 0;
+            padding-top: 56.2%; // aspect ratio
+        }
+
+        .caption-details {
+            position: absolute;
+            bottom: 2%;
+            margin-left: 6%;
+            color: white;
+            text-shadow: 0px 0px 5px black;
+
+            h2 {
+                text-align: left;
+                margin-bottom: 0;
+
+                @media (max-width: $screen-xs-min) {
+                    font-size: 1.2em;
+                }
+            }
+        }
+
+        @media (max-width: $screen-xs-min) {
+            margin-top: 20px;
+        }
+    }
+
+    // copied from blog post source: http://info.elastica.net/2014/02/rayid-ghani-interview/
+    .entry-social-links {
+        position: absolute;
+        margin-top: 20px;
+
+        @media (max-width: $screen-md-min) {
+            display: none;
+        }
+
+        a {
+            display: block;
+            width: 50px;
+            height: 50px;
+            border: 2px solid #9aca40;
+            /* h5bp text-hide */
+            font: 0/0 a;
+            color: transparent;
+            text-shadow: none;
+            background-color: transparent;
+        }
+
+        a.linkedin {
+            background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDowNzc0REYwMzdGNUUxMUUzOTMyMzhGNjBGRjJBRDVCQyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDowNzc0REYwNDdGNUUxMUUzOTMyMzhGNjBGRjJBRDVCQyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjA3NzRERjAxN0Y1RTExRTM5MzIzOEY2MEZGMkFENUJDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjA3NzRERjAyN0Y1RTExRTM5MzIzOEY2MEZGMkFENUJDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+lGepOwAAALZJREFUeNpinHdSjwEI0oA4FIj3APEsIH7PQCZggRo0E8p3gdKd5BrIBMRKaGIuDBQAJqgX70H57ylxHczLIEOUoS47S0n4wVwIA3tINAzkAGNsBoIk/iPh3Ujyu5HEVwGxIDQC30HlzkDZacheJhYoQQ1BdxXMEhDdyUSCgcbYvIgEykGGMpEY5qAwDgNiRiBOx+JSY1INrADi1VD2LCQ23BekGngPjX8WX7KhChg1cCQYCBBgAMDSJFHO1ExTAAAAAElFTkSuQmCC") no-repeat center center;
+        }
+
+        a.twitter {
+            background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAQCAYAAAD0xERiAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDowNzc0REYwNzdGNUUxMUUzOTMyMzhGNjBGRjJBRDVCQyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDowNzc0REYwODdGNUUxMUUzOTMyMzhGNjBGRjJBRDVCQyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjA3NzRERjA1N0Y1RTExRTM5MzIzOEY2MEZGMkFENUJDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjA3NzRERjA2N0Y1RTExRTM5MzIzOEY2MEZGMkFENUJDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+e1NPPgAAAWdJREFUeNqU1M8rBGEcx/FnxiIOEik/ljhYuTjhoCguQvkX3DmIo5QDNyVKlMM67YWbnKT8SCSSi5VQHBRbtMQB+fF+6vvU07Qz03zrNbM9M/tpvs/zzDjJ45YCpVQRXlVwVWMcAyjGCeaRRiduYhyaMINZHPgEVSCJXmusDh24xhumXA5lGMQKenzChjxBpqrQJRkJHfaBLJqxhmnUev7UGtD+jzzdrg67xJZcKMck9jEn89OG0oCwRyzosw7Lxw4y1g31GMMmNmRu/OpLKLMAI9Cr+gfHc3NlyCpnzU5wpd9nacVR0esKTybsBRM4NY8bsfR2+jZhug5lEu8jBt3JvCo7TJ9rEI8Ytmw/gAn7xSrW8Sl7J6y2sWQPuNbvjOz0fpm/oDrHKN7twZi8d4XIQyP6Qto9kq2U9l7QYQkMy06PyxckV+m5SUlrD7lu0GFnWEQ32tGAErmu27jFnrxyF0G9/wswAMNJSch1FbkTAAAAAElFTkSuQmCC") no-repeat center center;
+            border-top: 0;
+        }
+    }
+
+    .section--article {
+        padding-top: 10px;
+
+        @media (max-width: $screen-sm-min) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    .section--article__text h3,
+    .section--article__text p {
+        color: $textcolor;
+    }
+
+    .section--article__text h3 {
+        margin-top: 8px;
+    }
+
+    // override hubspot form style
+    form.hs-form {
+        .hs-form-field label {
+            color: $textcolor;
+            font-family: "ProximaNova-Regular";
+        }
+
+        .actions {
+            margin-left: -20px;
+        }
+
+        .hs-button {
+            background: $form-submit-btn-bgcolor;
+            border: none;
+        }
+    }
+
+    p.follow-button-code {
+        margin: 0 20px 0 0;
+        float: left;
+    }
+
+    .terms-and-conditions {
+        font-size: 0.8em;
+    }
+}

@@ -1,0 +1,54 @@
+$width: 575px;
+$height: 336px;
+
+$aspect-ratio: $width / $height;
+
+$transition-duration: 1.5s;
+$transition-easing: $easeOutSine;
+
+
+.controls-fast-animation {
+	display: inline-block;
+	position: relative;
+	max-width: $width;
+	width: 100%;
+}
+
+// prevent reflows when image loads
+.controls-fast-animation__ratio {
+	@include responsive-ratio($width, $height);
+}
+
+.controls-fast-animation__ratio__rotator {
+	position: absolute;
+	bottom: 0;
+	left: 43%;
+	height: 14% * $aspect-ratio;
+	width: 14%;
+	background: #24282f;
+	border: 3px solid #2b2f36;
+	border-radius: 100%;
+}
+
+.controls-fast-animation__ratio__needle {
+	position: absolute;
+	display: inline-block;
+	width: 50%;
+	left: 50%;
+	top: 84%;
+	bottom: 11%;
+
+	svg {
+		display: block;
+		height: 100%;
+		width: 100%;
+	}
+
+	transform: rotate(-180deg);
+	transform-origin: 0% 50%;
+
+	.run & {
+		transform: rotate(0deg);
+		transition: transform $transition-duration $transition-easing;
+	}
+}

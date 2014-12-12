@@ -1,0 +1,98 @@
+.big-carousel {
+	overflow: hidden;
+}
+
+.big-carousel__item {
+	display: block;
+	padding: 0 15px;
+
+	> img {
+		width: 100%;
+	}
+
+	@media (min-width: $screen-md-min) {
+		padding: 0 30px;
+	}
+
+	.no-js & {
+		max-width: 407px;
+		padding: 0 30px 20px;
+		float: left;
+	}
+
+	figcaption {
+		margin-left: 0;
+		margin-right: 0;
+        text-align: center;
+        font-style: normal; // no italic
+
+		@media (min-width: $screen-md-min) {
+			max-width: 100%; // Joy: was 70% earlier, made 100% to get the center align to work
+		}
+
+		opacity: 0;
+		transition: opacity 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+		.active & {
+			opacity: 1;
+		}
+	}
+}
+
+/*
+	Owl carousel overwrites
+*/
+.big-carousel {
+	.owl-theme .owl-controls {
+		margin-top: 40px;
+	}
+
+	.owl-btn-next,
+	.owl-btn-prev {
+		&:after {
+			top: 35%;
+		}
+	}
+
+	.owl-theme .owl-controls .owl-page span {
+		height: 10px;
+		width: 10px;
+
+		opacity: 1;
+		border: 1px solid #c7d0d0;
+		background-color: #c7d0d0;
+
+		margin: 5px 5px;
+	}
+
+	.owl-theme .owl-controls .owl-page.active span {
+		background-color: transparent;
+	}
+
+	%pagination {
+		display: block;
+		position: absolute;
+		width: 135px;
+		height: 80%;
+		top: 0;
+		bottom: 0;
+		z-index: 100;
+
+
+		&.disabled {
+			display: none;
+		}
+	}
+
+	.owl-btn-prev {
+		cursor: pointer;
+		@extend %pagination;
+		left: 0;
+	}
+
+	.owl-btn-next {
+		cursor: pointer;
+		@extend %pagination;
+		right: 0;
+	}
+}
+

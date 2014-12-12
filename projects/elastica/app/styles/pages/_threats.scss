@@ -1,0 +1,53 @@
+section.threats-hero:first-child {
+	padding-top: 5em;
+
+	.apps-threats-animation {
+		max-width: 50%;
+		@media (min-width: $screen-md-min) {
+			max-width: 100%;
+		}
+	}
+	.section--alternate__text {
+		backface-visibility: hidden;
+	}
+	@media (min-width: $screen-md-min) {
+		padding-top: 10%;
+		padding-bottom: 4%;
+		.section--alternate__text {
+			padding-top: 6%;
+		}
+		.section--alternate__image img {
+			max-width: 100%;
+		}
+	}
+}
+
+section.threats-malware {
+	@media (min-width: $screen-md-min) {
+		padding-top: 9%;
+		padding-bottom: 10%;
+		.section--alternate__text {
+			padding-top: 2%;
+		}
+	}
+}
+
+section.threats-ai {
+	@media (min-width: $screen-md-min) {
+		padding-top: 4%;
+		padding-bottom: 4%;
+		.section--centered__text {
+			max-width: 1200px;
+		}
+	}
+}
+
+.threats-identification {
+	@media (min-width: $screen-md-min) {
+		padding-top: 10%;
+		padding-bottom: 9%;
+		.section--alternate__text {
+			padding-top: 5%;
+		}
+	}
+}

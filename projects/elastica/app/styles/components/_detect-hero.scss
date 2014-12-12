@@ -1,0 +1,122 @@
+/*
+ * Detect Hero component
+ */
+.component-detect-hero {
+	padding-bottom: 75%;
+	position: relative;
+	-webkit-touch-callout: none;
+	user-select: none;
+	overflow:hidden;
+	background: #8ab53a;
+}
+
+
+.detect-hero__bg-left {
+	width: 100%;
+	position: absolute;
+	right: 50%;
+	background: #9aca40;
+	height: 100%;
+}
+
+.component-detect-hero__back {
+	background: #8ab53a;
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: -1px;
+	transform: translateZ(0);
+	background-image: url(/images/detect/detect-hero-back-large@1x.png);
+
+	.js-mouse-down & {
+		cursor: pointer;
+	}
+}
+
+.component-detect-hero__cover,
+.component-detect-hero__cover__rel,
+.component-detect-hero__cover__rel__content {
+	position: absolute;
+	z-index: 2;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: #9aca40;
+
+	.component-detect-hero--transition &  {
+		transition: transform 1s $easeOutCirc;
+	}
+
+	.js-mouse-down & {
+		transition: transform .1s $easeOutCirc;
+		cursor: pointer;
+	}
+}
+
+.component-detect-hero__cover {
+	right: 5%;
+	border-right: 2px solid #fff;
+}
+
+.component-detect-hero__cover__rel {
+	overflow:hidden;
+}
+
+
+.component-detect-hero__cover__rel__content {
+	background-image: url(/images/detect/detect-hero-cover-large@1x.png);
+}
+
+.component-detect-hero__back,
+.component-detect-hero__cover__rel__content {
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+.component-detect-hero__slider {
+	position: absolute;
+	top: 50%;
+	bottom: 0;
+	right: -25px;
+	margin-top: -23px;
+	width: 46px;
+	height: 46px;
+	background: #fff;
+	border-radius: 50%;
+	z-index: 10;
+	border: 3px solid #ffbb42;
+	cursor: pointer;
+
+	transform: translateZ(0);
+
+	&:before,
+	&:after {
+		position: absolute;
+		content: "";
+		top: 50%;
+		left: 50%;
+		height: 7px;
+		width: 4px;
+		margin-top: -3px;
+	}
+	&:before {
+		margin-left: -6px;
+		border-top: 4px solid transparent;
+		border-bottom: 3px solid transparent;
+		border-right: 4px solid #ffbb42;
+	}
+	&:after {
+		margin-left: 2px;
+		border-top: 4px solid transparent;
+		border-bottom: 3px solid transparent;
+		border-left: 4px solid #ffbb42;
+	}
+
+	&:active {
+		box-shadow: 0 0 1px 1px rgba(0,0,0,.1) inset;
+		border: 3px solid darken(#ffbb42, 10%);
+	}
+}
